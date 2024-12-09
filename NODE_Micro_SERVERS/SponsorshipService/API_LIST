@@ -1,0 +1,87 @@
+API_base_url = http://127.0.0.1:7900/
+API_base_url = http://localhost:7990/
+
+###
+### USERS
+###
+# signup
+# methods: post
+# role: public
+{{API_base_url}}api/a/v1.00/users/signup
+http://localhost:7990/api/a/v1.00/users/signup
+
+
+# login
+# methods: post
+# role: public
+{{API_base_url}}api/a/v1.00/users/login
+http://localhost:7990/api/a/v1.00/users/login
+
+
+# verifyemail
+# methods: post
+# role: public
+{{API_base_url}}api/a/v1.00/users/verifyemail
+http://localhost:7990/api/a/v1.00/users/verifyemail
+
+
+# resetpassword
+# methods: post
+# role: public
+{{API_base_url}}api/a/v1.00/users/resetpassword
+http://localhost:7990/api/a/v1.00/users/resetpassword/:Token
+
+
+# get all users and update mine
+# methods: get/put/patch 
+# role: user
+{{API_base_url}}api/a/v1.00/users
+http://localhost:7990/api/a/v1.00/users
+
+
+# updaterole
+# methods: patch
+# role: "superAdmin", "supreme"
+{{API_base_url}}api/a/v1.00/users/updaterole/:_id
+http://localhost:7990/api/a/v1.00/users/updaterole/:_id
+
+
+# setuserstatus
+# methods: patch
+{{API_base_url}}api/a/v1.00/users/setuserstatus/:_id
+http://localhost:7990/api/a/v1.00/users/setuserstatus/:_id
+
+
+# Me
+# methods: get/patch/put
+# role: user
+{{API_base_url}}api/a/v1.00/users/me
+http://localhost:7990/api/a/v1.00/users/me
+
+
+# searchuser
+# methods: post
+# role: user
+{{API_base_url}}api/a/v1.00/users/searchuser
+http://localhost:7990/api/a/v1.00/users/searchuser
+
+
+# approveUser
+# methods: post
+# role: admin
+{{API_base_url}}api/a/v1.00/users/approveUser
+http://localhost:7990/api/a/v1.00/users/approveUser
+
+
+# adminPatchUser
+# methods: post
+# role: admin
+{{API_base_url}}api/a/v1.00/users/adminPatchUser
+http://localhost:7990/api/a/v1.00/users/adminPatchUser
+
+
+###
+### Balance
+###
+{{API_base_url}}api/a/v1.00/balance/adminPatchUser
+http://localhost:7990/api/a/v1.00/users/adminPatchUser

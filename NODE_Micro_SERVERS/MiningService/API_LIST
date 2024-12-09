@@ -1,0 +1,144 @@
+MINING_HOST_API_base_url = http://127.0.0.1:7982/
+MINING_HOST_API_base_url = http://localhost:7982/
+
+###
+### COIN MINING
+###
+
+# methods: post
+# role: user
+# body= {
+#   VideoId: { type: Number, required: true },
+#   Watchcode: { type: String, required: true},
+# }
+{{MINING_HOST_API_base_url}}api/a/v1.00/coinmining
+http://localhost:7982/api/a/v1.00/coinmining
+
+
+# get all
+# methods: get
+# role: admin
+{{MINING_HOST_API_base_url}}api/a/v1.00/coinmining
+http://localhost:7982/api/a/v1.00/coinmining
+
+# get one
+# methods: get
+# role: admin
+{{MINING_HOST_API_base_url}}api/a/v1.00/coinmining/_id
+http://localhost:7982/api/a/v1.00/coinmining/_id
+
+
+###
+### BALANCE
+###
+
+# withdrawable
+# methods: get
+# role: supreme
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/withdrawable
+http://localhost:7982/api/a/v1.00/balance/withdrawable
+
+
+# notwithdrawable
+# methods: get
+# role: supreme
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/notwithdrawable
+http://localhost:7982/api/a/v1.00/balance/notwithdrawable
+
+
+# withdraw
+# methods: get
+# role: user
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/withdraw
+http://localhost:7982/api/a/v1.00/balance/withdraw
+
+
+
+# payin
+# methods: post
+# role: user
+# body = {}
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/payin
+http://localhost:7982/api/a/v1.00/balance/payin
+
+
+# Get All Balances
+# methods: get, post
+# role: superAdmin, supreme
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance
+http://localhost:7982/api/a/v1.00/balance
+
+
+# Get user Balances
+# methods: get
+# role: user
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/:userId
+http://localhost:7982/api/a/v1.00/balance/:userId
+
+
+# Get user Balances
+# methods: put, patch, delete
+# role: supreme
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/:userId
+http://localhost:7982/api/a/v1.00/balance/:userId
+
+
+
+###
+### CHECKIN
+###
+
+# Get All Checkins
+# methods: get
+# role: admin
+{{MINING_HOST_API_base_url}}api/a/v1.00/checkin
+http://localhost:7982/api/a/v1.00/checkin
+
+
+# Post Checkins
+# methods: post
+# role: user
+# body = {}
+{{MINING_HOST_API_base_url}}api/a/v1.00/checkin
+http://localhost:7982/api/a/v1.00/checkin
+
+
+# get user Checkins
+# methods: get
+# role: admin
+{{MINING_HOST_API_base_url}}api/a/v1.00/checkin/:_id
+http://localhost:7982/api/a/v1.00/checkin/:_id
+
+
+###
+### REFERAL BONUS
+###
+
+
+# Get All Checkins
+# methods: get
+# role: admin
+{{MINING_HOST_API_base_url}}api/a/v1.00/referralBonus
+http://localhost:7982/api/a/v1.00/referralBonus
+
+
+# Post referralBonus
+# methods: post
+# role: user
+# body = {}
+{{MINING_HOST_API_base_url}}api/a/v1.00/referralBonus
+http://localhost:7982/api/a/v1.00/referralBonus
+
+
+# get user referralBonus
+# methods: get
+# role: user
+{{MINING_HOST_API_base_url}}api/a/v1.00/referralBonus/:userId
+http://localhost:7982/api/a/v1.00/referralBonus/:userId
+
+
+# get user referralBonus
+# methods: delete
+# role: supreme
+{{MINING_HOST_API_base_url}}api/a/v1.00/referralBonus/:_id
+http://localhost:7982/api/a/v1.00/referralBonus/:_id

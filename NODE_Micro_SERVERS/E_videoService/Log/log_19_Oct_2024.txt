@@ -1,0 +1,2 @@
+Query took  7 in milliseconds to fetch the documents, on Sat Oct 19 2024 07:18:18 GMT+0100 (West Africa Standard Time)
+Query took  8 in milliseconds to fetch the documents, on Sat Oct 19 2024 09:17:08 GMT+0100 (West Africa Standard Time)

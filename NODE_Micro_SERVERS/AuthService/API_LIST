@@ -1,0 +1,228 @@
+AUTH_HOST_AUTH_HOST_API_base_url = http://127.0.0.1:7981/
+or
+AUTH_HOST_AUTH_HOST_API_base_url = http://localhost:7981/
+
+###
+### USERS
+###
+# signup
+# methods: post
+# role: public
+# body = {
+#   firstName: {
+#       type: String,
+#       required: [true, "Please enter your first name"],
+#       trim: true,
+#     },
+#     lastName: {
+#       type: String,
+#       required: [true, "please enter your last name"],
+#       trim: true,
+#     },
+#     email: {
+#       type: String,
+#       unique: true,
+#       required: [true, "Please enter email"],
+#       lowercase: true,
+#       trim: true,
+#       // validate: [validator.isEmail, 'please enter a valid email']
+#     },
+#     password: {
+#       type: String,
+#       required: [true, "Please enter password"],
+#       minlength: [8, "password must be at least 8 characters"],
+#       select: false,
+#     },
+#     confirmPassword: {
+#       type: String,
+#       required: [true, "Please enter value for confirmPassword"],
+#     },
+#     userTitle: { type: String},
+#     referred: {
+#       type: mongoose.Schema.Types.ObjectId,
+#       required: true,
+#       immutable: true,
+#     },
+#     gender: { type: String, enum: ["Male", "Female"], default: "Male" },
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/signup
+http://localhost:7981/api/a/v1.00/users/signup
+
+
+# ProfileUpdate
+# methods: Patch, Put
+# role: user
+# body = {
+#   firstName: {
+#       type: String,
+#       required: [true, "Please enter your first name"],
+#       trim: true,
+#     },
+#     lastName: {
+#       type: String,
+#       required: [true, "please enter your last name"],
+#       trim: true,
+#     },
+
+#     userTitle: { type: String},
+
+#     gender: { type: String, enum: ["Male", "Female"], default: "Male" },
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/profileupdate
+http://localhost:7981/api/a/v1.00/users/profileupdate
+
+# login
+# methods: post
+# role: public
+# body = {
+#   email,
+#   password
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/login
+http://localhost:7981/api/a/v1.00/users/login
+
+
+# verifyemail
+# methods: post
+# role: public
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/verifyemail
+http://localhost:7981/api/a/v1.00/users/verifyemail
+
+
+# resendverificationemail
+# methods: get
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/resendverificationemail
+http://localhost:7981/api/a/v1.00/users/resendverificationemail
+
+
+# forgotpassword
+# methods: post
+# role: public
+# body = {
+#   email
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/forgotpassword
+http://localhost:7981/api/a/v1.00/users/forgotpassword
+
+
+# resetpassword
+# methods: post
+# role: public
+# body = {
+#   password,
+#   confirm-password
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/resetpassword/:Token
+http://localhost:7981/api/a/v1.00/users/resetpassword/:Token
+
+
+# changePassword
+# methods: post
+# role: public
+# body = {
+#   oldpassword
+#   password,
+#   confirm-password
+# }
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/changepassword
+http://localhost:7981/api/a/v1.00/users/changepassword
+
+# get all users and update mine
+# methods: get/put/patch 
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users
+http://localhost:7981/api/a/v1.00/users
+
+
+# get a users and update mine
+# methods: get/put/patch 
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/:_id
+http://localhost:7981/api/a/v1.00/users/:_id
+
+# updaterole
+# methods: patch
+# role: "superAdmin", "supreme"
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/updaterole/:_id
+http://localhost:7981/api/a/v1.00/users/updaterole/:_id
+
+
+# setuserstatus
+# methods: patch
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/setuserstatus/:_id
+http://localhost:7981/api/a/v1.00/users/setuserstatus/:_id
+
+
+# Me
+# methods: get/patch/put
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/me
+http://localhost:7981/api/a/v1.00/users/me
+
+
+# searchuser
+# methods: post
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/searchuser
+http://localhost:7981/api/a/v1.00/users/searchuser
+
+
+# approveUser
+# methods: post
+# role: admin
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/approveUser
+http://localhost:7981/api/a/v1.00/users/approveUser
+
+
+# adminPatchUser
+# methods: post
+# role: admin
+{{AUTH_HOST_API_base_url}}api/a/v1.00/users/adminPatchUser
+http://localhost:7981/api/a/v1.00/users/adminPatchUser
+
+
+
+###
+### REFERALS
+###
+
+# All Referals
+# methods: get
+# role: admin
+{{AUTH_HOST_API_base_url}}api/a/v1.00/referral
+http://localhost:7981/api/a/v1.00/referral
+
+
+# All user Referals
+# methods: get
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/referral/user/:referalID
+http://localhost:7981/api/a/v1.00/referral/user/:referalID
+
+
+
+
+# Get Referals with record id
+# methods: put, patch, delete
+# role: superAdmin, supreme
+{{AUTH_HOST_API_base_url}}api/a/v1.00/referral/:_id
+http://localhost:7981/api/a/v1.00/referral/:_id
+
+
+###
+### REFERALS TASK
+###
+
+# All Referals
+# methods: get
+# role: superAdmin
+{{AUTH_HOST_API_base_url}}api/a/v1.00/referraltask
+http://localhost:7981/api/a/v1.00/referraltask
+
+
+# user ReferalTask
+# methods: get
+# role: user
+{{AUTH_HOST_API_base_url}}api/a/v1.00/referraltask
+http://localhost:7981/api/a/v1.00/referraltask

@@ -1,0 +1,1196 @@
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 06:45:56 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:46:24 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:53:13 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:54:16 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:56:37 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:59:22 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 09:59:58 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+},{
+  message: 'vid1',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:58.314Z,
+  _id: new ObjectId('6724988e61d58df70f40156c')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 10:00:40 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+},{
+  message: 'vid1',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:58.314Z,
+  _id: new ObjectId('6724988e61d58df70f40156c')
+},{
+  message: 'image1',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'shopaddy_logo.png.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      path: 'uploads\\supportTicket\\2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      size: 107518
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:00:40.548Z,
+  _id: new ObjectId('672498b861d58df70f401582')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 10:16:28 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+},{
+  message: 'vid1',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:58.314Z,
+  _id: new ObjectId('6724988e61d58df70f40156c')
+},{
+  message: 'image1',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'shopaddy_logo.png.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      path: 'uploads\\supportTicket\\2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      size: 107518
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:00:40.548Z,
+  _id: new ObjectId('672498b861d58df70f401582')
+},{
+  message: 'hey vid',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'ArsenalChelsea.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      size: 6116302
+    },
+    {
+      fieldname: 'files',
+      originalname: 'WATCH.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-28.159Z-WATCH.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-28.159Z-WATCH.mp4',
+      size: 3800707
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:16:28.336Z,
+  _id: new ObjectId('67249c6cc89ec013583a093a')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 10:17:20 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+},{
+  message: 'vid1',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:58.314Z,
+  _id: new ObjectId('6724988e61d58df70f40156c')
+},{
+  message: 'image1',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'shopaddy_logo.png.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      path: 'uploads\\supportTicket\\2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      size: 107518
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:00:40.548Z,
+  _id: new ObjectId('672498b861d58df70f401582')
+},{
+  message: 'hey vid',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'ArsenalChelsea.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      size: 6116302
+    },
+    {
+      fieldname: 'files',
+      originalname: 'WATCH.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-28.159Z-WATCH.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-28.159Z-WATCH.mp4',
+      size: 3800707
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:16:28.336Z,
+  _id: new ObjectId('67249c6cc89ec013583a093a')
+},{
+  message: 'my vid',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'WhatsAppVideo.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-17-20.384Z-WhatsAppVideo.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-17-20.384Z-WhatsAppVideo.mp4',
+      size: 5029900
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:17:20.533Z,
+  _id: new ObjectId('67249ca0c89ec013583a0954')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Fri Nov 01 2024 12:37:15 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'agent',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+},{
+  message: 'my two files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.530Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    },
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-11-01T05-45-56.533Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T05:45:56.564Z,
+  _id: new ObjectId('67246b1438ce12125cd341dc')
+},{
+  message: 'checking videos',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:46:24.628Z,
+  _id: new ObjectId('67249560ebfcb4b02134c116')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:53:13.127Z,
+  _id: new ObjectId('672496f9ebfcb4b02134c12c')
+},{
+  message: 'guy',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:54:16.509Z,
+  _id: new ObjectId('67249738ebfcb4b02134c164')
+},{
+  message: 'you',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:56:37.069Z,
+  _id: new ObjectId('672497c5ebfcb4b02134c182')
+},{
+  message: 'my man',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:22.934Z,
+  _id: new ObjectId('6724986a61d58df70f401558')
+},{
+  message: 'vid1',
+  files: [],
+  sentBy: 'user',
+  sentAt: 2024-11-01T08:59:58.314Z,
+  _id: new ObjectId('6724988e61d58df70f40156c')
+},{
+  message: 'image1',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'shopaddy_logo.png.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      path: 'uploads\\supportTicket\\2024-11-01T09-00-40.529Z-shopaddy_logo.png.png',
+      size: 107518
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:00:40.548Z,
+  _id: new ObjectId('672498b861d58df70f401582')
+},{
+  message: 'hey vid',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'ArsenalChelsea.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-27.835Z-ArsenalChelsea.mp4',
+      size: 6116302
+    },
+    {
+      fieldname: 'files',
+      originalname: 'WATCH.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-16-28.159Z-WATCH.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-16-28.159Z-WATCH.mp4',
+      size: 3800707
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:16:28.336Z,
+  _id: new ObjectId('67249c6cc89ec013583a093a')
+},{
+  message: 'my vid',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'WhatsAppVideo.mp4',
+      encoding: '7bit',
+      mimetype: 'video/mp4',
+      destination: './uploads/supportTicket',
+      filename: '2024-11-01T09-17-20.384Z-WhatsAppVideo.mp4',
+      path: 'uploads\\supportTicket\\2024-11-01T09-17-20.384Z-WhatsAppVideo.mp4',
+      size: 5029900
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-11-01T09:17:20.533Z,
+  _id: new ObjectId('67249ca0c89ec013583a0954')
+},{
+  message: 'hey',
+  files: [],
+  sentBy: 'agent',
+  sentAt: 2024-11-01T11:37:15.220Z,
+  _id: new ObjectId('6724bd6b7cbe69a0ba9ff8e5')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"

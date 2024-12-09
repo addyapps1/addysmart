@@ -1,0 +1,8 @@
+Query took  20 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:02:28 GMT+0100 (West Africa Standard Time)
+Query took  6 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:02:32 GMT+0100 (West Africa Standard Time)
+Query took  8 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:05:14 GMT+0100 (West Africa Standard Time)
+Query took  11 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:05:14 GMT+0100 (West Africa Standard Time)
+Query took  8 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:05:36 GMT+0100 (West Africa Standard Time)
+A new external Content document with issueCode undefined created by 6717fde7d963d196c3c0d522 on Sun Oct 27 2024 12:05:36 GMT+0100 (West Africa Standard Time)
+Query took  5 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:33:44 GMT+0100 (West Africa Standard Time)
+Query took  3 in milliseconds to fetch the documents, on Sun Oct 27 2024 12:33:44 GMT+0100 (West Africa Standard Time)

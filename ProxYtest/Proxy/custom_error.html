@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10;url=/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #e74c3c;
+        }
+        p {
+            font-size: 18px;
+        }
+        .url {
+            color: #3498db;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oops! Something went wrong.</h1>
+    <p>We encountered an error while trying to redirect your request.</p>
+    <p>Redirecting to: <span class="url">{{ proxy_pass_url }}</span></p>
+    <p>You will be automatically redirected in 10 seconds. If not, <a href="/">click here</a>.</p>
+</body>
+</html>

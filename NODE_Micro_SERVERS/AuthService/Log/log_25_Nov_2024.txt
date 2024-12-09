@@ -1,0 +1,10 @@
+Action took  41 in milliseconds to create the documents, on Mon Nov 25 2024 08:30:48 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Mon Nov 25 2024 08:30:48 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Mon Nov 25 2024 08:30:48 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Mon Nov 25 2024 08:30:49 GMT+0100 (West Africa Standard Time)
+Action took  72 in milliseconds to create the documents, on Mon Nov 25 2024 08:30:49 GMT+0100 (West Africa Standard Time)
+Action took  34 in milliseconds to create the documents, on Mon Nov 25 2024 08:41:42 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Mon Nov 25 2024 08:41:42 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Mon Nov 25 2024 08:41:43 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Mon Nov 25 2024 08:41:43 GMT+0100 (West Africa Standard Time)

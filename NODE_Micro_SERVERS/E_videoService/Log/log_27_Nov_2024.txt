@@ -1,0 +1,8 @@
+Query took  11 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:08:28 GMT+0100 (West Africa Standard Time)
+Query took  57 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:08:43 GMT+0100 (West Africa Standard Time)
+Query took  3 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:08:49 GMT+0100 (West Africa Standard Time)
+Query took  4 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:09:58 GMT+0100 (West Africa Standard Time)
+Query took  4 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:10:30 GMT+0100 (West Africa Standard Time)
+Query took  3 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:10:54 GMT+0100 (West Africa Standard Time)
+Query took  3 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:36:34 GMT+0100 (West Africa Standard Time)
+Query took  13 in milliseconds to fetch the documents, on Wed Nov 27 2024 13:36:46 GMT+0100 (West Africa Standard Time)

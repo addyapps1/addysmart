@@ -1,0 +1,52 @@
+API_base_url = http://127.0.0.1:7983/
+API_base_url = http://localhost:7983/
+
+###
+### E_Videos
+###
+
+# POST Video
+# methods: post,post
+# role: superAdmin
+# body={
+#   link: { type: String, required: true, unique: true },
+#   watchcode: { type: String, required: true },
+#   instructions: { type: String, required: true },
+# }
+{{API_base_url}}api/a/v1.00/evideo
+http://localhost:7983/api/a/v1.00/evideo
+
+
+# Get E-Video and update recently viewed
+# methods: get
+# role: server to server only
+{{API_base_url}}api/a/v1.00/evideo/evuplv
+http://localhost:7983/api/a/v1.00/evideo/evuplv
+
+
+# GetAll
+# methods: get
+# role: user
+{{API_base_url}}api/a/v1.00/evideo
+http://localhost:7983/api/a/v1.00/evideo
+
+
+# GetOne
+# methods: get
+# role: user
+{{API_base_url}}api/a/v1.00/evideo/_id
+http://localhost:7983/api/a/v1.00/evideo/_id
+
+# GetOne
+# methods: put, patch. delete
+# role: superAdmin
+{{API_base_url}}api/a/v1.00/evideo/_id
+http://localhost:7983/api/a/v1.00/evideo/_id
+
+
+
+# TASKS
+# methods: get
+# role: server to server only
+{{API_base_url}}api/a/v1.00/evideo/tasks
+http://localhost:7983/api/a/v1.00/evideo/tasks

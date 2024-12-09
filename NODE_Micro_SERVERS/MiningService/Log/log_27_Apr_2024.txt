@@ -1,0 +1,12 @@
+Action took  65 in milliseconds to create the documents, on Sat Apr 27 2024 07:55:36 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  53 in milliseconds to create the documents, on Sat Apr 27 2024 08:00:39 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  17 in milliseconds to create the documents, on Sat Apr 27 2024 08:04:43 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  22 in milliseconds to create the documents, on Sat Apr 27 2024 08:05:23 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  38 in milliseconds to create the documents, on Sat Apr 27 2024 08:07:29 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  18 in milliseconds to create the documents, on Sat Apr 27 2024 08:08:13 GMT+0100 (West Africa Standard Time)
+Query took  52 in milliseconds to fetch the documents, on Sat Apr 27 2024 08:08:13 GMT+0100 (West Africa Standard Time)

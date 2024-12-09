@@ -1,0 +1,402 @@
+Action took  21 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:42 GMT+0100 (West Africa Standard Time)
+Action took  108 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:42 GMT+0100 (West Africa Standard Time)
+Action took  50 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:42 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:42 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:43 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:43 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 03:42:43 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 03:43:42 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 03:43:42 GMT+0100 (West Africa Standard Time)
+Action took  36 in milliseconds to create the documents, on Tue Oct 22 2024 03:45:02 GMT+0100 (West Africa Standard Time)
+Action took  13 in milliseconds to create the documents, on Tue Oct 22 2024 03:45:02 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 03:45:02 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 03:46:06 GMT+0100 (West Africa Standard Time)
+Action took  20 in milliseconds to create the documents, on Tue Oct 22 2024 03:56:37 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 03:56:37 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 03:56:37 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  15 in milliseconds to create the documents, on Tue Oct 22 2024 04:00:14 GMT+0100 (West Africa Standard Time)
+Action took  11 in milliseconds to create the documents, on Tue Oct 22 2024 04:00:14 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:00:15 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  14 in milliseconds to create the documents, on Tue Oct 22 2024 04:01:40 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 04:01:40 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 04:01:41 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  22 in milliseconds to create the documents, on Tue Oct 22 2024 04:17:35 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:17:35 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:17:36 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  16 in milliseconds to create the documents, on Tue Oct 22 2024 04:18:27 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:18:27 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:19:05 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  16 in milliseconds to create the documents, on Tue Oct 22 2024 04:19:39 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:19:39 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:19:45 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 04:21:00 GMT+0100 (West Africa Standard Time)
+Action took  32 in milliseconds to create the documents, on Tue Oct 22 2024 04:21:00 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:08 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:09 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:11 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:11 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:16 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:56 GMT+0100 (West Africa Standard Time)
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 04:22:56 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:04 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:04 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:07 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:34 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:34 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:49 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:23:50 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:13 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:14 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:30 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:30 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:38 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:40 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:40 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:45 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:45 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:56 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:24:56 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:25:05 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:25:05 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:26:11 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:26:11 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:26:39 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:29:35 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:29:36 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:04 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:05 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:18 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:26 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:26 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:42 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:43 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:55 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:30:55 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 04:31:04 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:31:04 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:48:08 GMT+0100 (West Africa Standard Time)
+Action took  18 in milliseconds to create the documents, on Tue Oct 22 2024 04:48:30 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 04:48:55 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 04:48:55 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 04:49:04 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 04:49:17 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 05:10:31 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 05:10:31 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 05:10:31 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 05:42:31 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 05:42:31 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  12 in milliseconds to create the documents, on Tue Oct 22 2024 05:43:10 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 05:43:11 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  103 in milliseconds to create the documents, on Tue Oct 22 2024 05:48:07 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 05:48:07 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  55 in milliseconds to create the documents, on Tue Oct 22 2024 05:58:33 GMT+0100 (West Africa Standard Time)
+Action took  11 in milliseconds to create the documents, on Tue Oct 22 2024 05:58:33 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  14 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:29 GMT+0100 (West Africa Standard Time)
+Action took  48 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:29 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:29 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:29 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:30 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:30 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 06:58:30 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 07:00:24 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 07:00:24 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 07:17:50 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 07:17:50 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  418 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:05 GMT+0100 (West Africa Standard Time)
+Action took  624 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:05 GMT+0100 (West Africa Standard Time)
+Action took  41 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:05 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:05 GMT+0100 (West Africa Standard Time)
+Action took  134 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:06 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:07 GMT+0100 (West Africa Standard Time)
+Action took  94 in milliseconds to create the documents, on Tue Oct 22 2024 08:38:07 GMT+0100 (West Africa Standard Time)
+Action took  19 in milliseconds to create the documents, on Tue Oct 22 2024 08:51:02 GMT+0100 (West Africa Standard Time)
+Action took  17 in milliseconds to create the documents, on Tue Oct 22 2024 08:51:02 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 08:51:27 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 08:51:27 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 08:52:11 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 08:52:11 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  18 in milliseconds to create the documents, on Tue Oct 22 2024 09:04:11 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 09:04:11 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 09:04:49 GMT+0100 (West Africa Standard Time)
+Action took  14 in milliseconds to create the documents, on Tue Oct 22 2024 09:05:57 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 09:05:57 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 09:06:43 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 09:06:43 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 09:06:44 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 09:08:09 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 09:08:10 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  44 in milliseconds to create the documents, on Tue Oct 22 2024 12:20:44 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:20:44 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:26:06 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:27:38 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:27:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:27:51 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:27:51 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  22 in milliseconds to create the documents, on Tue Oct 22 2024 12:31:40 GMT+0100 (West Africa Standard Time)
+Action took  26 in milliseconds to create the documents, on Tue Oct 22 2024 12:31:40 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:31:43 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:31:43 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:31:48 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:32:56 GMT+0100 (West Africa Standard Time)
+Action took  41 in milliseconds to create the documents, on Tue Oct 22 2024 12:32:56 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:33:05 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 12:33:06 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  32 in milliseconds to create the documents, on Tue Oct 22 2024 12:35:47 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 12:35:48 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  204 in milliseconds to create the documents, on Tue Oct 22 2024 12:36:18 GMT+0100 (West Africa Standard Time)
+Action took  25 in milliseconds to create the documents, on Tue Oct 22 2024 12:36:19 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:36:34 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  27 in milliseconds to create the documents, on Tue Oct 22 2024 12:37:17 GMT+0100 (West Africa Standard Time)
+Action took  24 in milliseconds to create the documents, on Tue Oct 22 2024 12:37:17 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:39:04 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:39:05 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:40:43 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:40:44 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:41:46 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 12:41:46 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:42:52 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:42:52 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  28 in milliseconds to create the documents, on Tue Oct 22 2024 12:52:57 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:52:57 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:53:19 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 12:53:19 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 12:53:33 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 12:54:13 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 12:54:13 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 12:54:27 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:54:28 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  48 in milliseconds to create the documents, on Tue Oct 22 2024 12:58:48 GMT+0100 (West Africa Standard Time)
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 12:58:49 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:58:52 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 12:58:52 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 12:59:28 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  15 in milliseconds to create the documents, on Tue Oct 22 2024 13:01:18 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 13:01:18 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 13:01:26 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 13:01:58 GMT+0100 (West Africa Standard Time)
+Action took  14 in milliseconds to create the documents, on Tue Oct 22 2024 13:01:58 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 13:02:15 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 13:02:16 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  27 in milliseconds to create the documents, on Tue Oct 22 2024 14:03:39 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 14:03:39 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  15 in milliseconds to create the documents, on Tue Oct 22 2024 14:03:55 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 14:03:55 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 14:04:01 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 14:06:35 GMT+0100 (West Africa Standard Time)
+Action took  33 in milliseconds to create the documents, on Tue Oct 22 2024 14:06:36 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  19 in milliseconds to create the documents, on Tue Oct 22 2024 14:12:44 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 14:12:45 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  27 in milliseconds to create the documents, on Tue Oct 22 2024 14:24:23 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 14:24:25 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  14 in milliseconds to create the documents, on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:16:14 GMT+0100 (West Africa Standard Time)
+Query took 3 milliseconds to fetch documents on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+Query took 3 milliseconds to fetch documents on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+Action took  41 in milliseconds to create the documents, on Tue Oct 22 2024 17:16:15 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 17:16:50 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:16:14 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:17:14 GMT+0100 (West Africa Standard Time)
+Action took  26 in milliseconds to create the documents, on Tue Oct 22 2024 17:18:42 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:18:43 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 17:19:09 GMT+0100 (West Africa Standard Time)
+Action took  11 in milliseconds to create the documents, on Tue Oct 22 2024 17:19:09 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 17:19:15 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:19:26 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:19:27 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:20:12 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:20:13 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:28:32 GMT+0100 (West Africa Standard Time)
+Query took 4 milliseconds to fetch documents on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+Query took 4 milliseconds to fetch documents on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+Action took  47 in milliseconds to create the documents, on Tue Oct 22 2024 17:28:33 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 17:28:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:28:32 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:29:44 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:29:46 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:30:38 GMT+0100 (West Africa Standard Time)
+Action took  10 in milliseconds to create the documents, on Tue Oct 22 2024 17:30:38 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:30:49 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:31:00 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:31:02 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  10 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Query took 4 milliseconds to fetch documents on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Query took 5 milliseconds to fetch documents on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Action took  81 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Action took  9 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:09 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 17:42:04 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:21 GMT+0100 (West Africa Standard Time)
+Action took  80 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:23 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  10 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:28 GMT+0100 (West Africa Standard Time)
+Action took  17 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:28 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:48 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:42:49 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:44:03 GMT+0100 (West Africa Standard Time)
+Action took  26 in milliseconds to create the documents, on Tue Oct 22 2024 17:44:03 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:44:12 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 17:44:13 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:45:02 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:45:02 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:46:25 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 17:46:25 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 17:46:53 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 17:46:54 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  21 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:00 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:00 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:05 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:05 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:05 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:05 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:05 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:06 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:06 GMT+0100 (West Africa Standard Time)
+Action took  2 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:17 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:17 GMT+0100 (West Africa Standard Time)
+Action took  46 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:17 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:18 GMT+0100 (West Africa Standard Time)
+Action took  3 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:18 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 17:53:18 GMT+0100 (West Africa Standard Time)
+Action took  98 in milliseconds to create the documents, on Tue Oct 22 2024 17:57:09 GMT+0100 (West Africa Standard Time)
+Action took  6 in milliseconds to create the documents, on Tue Oct 22 2024 17:57:10 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined
+Action took  28 in milliseconds to create the documents, on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+Action took  25 in milliseconds to create the documents, on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+Action took  10 in milliseconds to create the documents, on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 19:59:37 GMT+0100 (West Africa Standard Time)
+Query took 7 milliseconds to fetch documents on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+Query took 18 milliseconds to fetch documents on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+Action took  28 in milliseconds to create the documents, on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 19:59:38 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 19:59:37 GMT+0100 (West Africa Standard Time)
+Action took  23 in milliseconds to create the documents, on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:16:33 GMT+0100 (West Africa Standard Time)
+Query took 6 milliseconds to fetch documents on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+Query took 8 milliseconds to fetch documents on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+Action took  38 in milliseconds to create the documents, on Tue Oct 22 2024 20:16:34 GMT+0100 (West Africa Standard Time)
+Action took  20 in milliseconds to create the documents, on Tue Oct 22 2024 20:16:35 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:16:33 GMT+0100 (West Africa Standard Time)
+Action took  17 in milliseconds to create the documents, on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:22:39 GMT+0100 (West Africa Standard Time)
+Query took 5 milliseconds to fetch documents on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+Query took 5 milliseconds to fetch documents on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+A new referral created by 6716b249d9b04f3bd43568e0 on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+Action took  31 in milliseconds to create the documents, on Tue Oct 22 2024 20:22:40 GMT+0100 (West Africa Standard Time)
+Action took  10 in milliseconds to create the documents, on Tue Oct 22 2024 20:22:41 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:22:39 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 20:32:56 GMT+0100 (West Africa Standard Time)
+Action took  4 in milliseconds to create the documents, on Tue Oct 22 2024 20:32:56 GMT+0100 (West Africa Standard Time)
+Action took  7 in milliseconds to create the documents, on Tue Oct 22 2024 20:32:56 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:32:55 GMT+0100 (West Africa Standard Time)
+Action took  16 in milliseconds to create the documents, on Tue Oct 22 2024 20:33:50 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on Tue Oct 22 2024 20:32:55 GMT+0100 (West Africa Standard Time)
+Action took  8 in milliseconds to create the documents, on Tue Oct 22 2024 20:36:05 GMT+0100 (West Africa Standard Time)
+Action took  5 in milliseconds to create the documents, on Tue Oct 22 2024 20:36:05 GMT+0100 (West Africa Standard Time)
+A new User document created with undefined on undefined

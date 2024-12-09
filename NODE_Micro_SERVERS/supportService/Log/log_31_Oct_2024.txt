@@ -1,0 +1,203 @@
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 15:44:07 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'hello my man',
+  files: [
+    {
+      fileType: 'image/png',
+      _id: new ObjectId('672397b76e3389d83a0e8d71')
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T14:44:07.740Z,
+  _id: new ObjectId('672397b76e3389d83a0e8d70')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 15:46:30 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object]" to "{
+  message: 'hello my man',
+  files: [
+    {
+      fileType: 'image/png',
+      _id: new ObjectId('672397b76e3389d83a0e8d71')
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T14:44:07.740Z,
+  _id: new ObjectId('672397b76e3389d83a0e8d70')
+},{
+  message: 'checking',
+  files: [
+    {
+      fileType: 'image/jpeg',
+      _id: new ObjectId('672398466fc5860343be12c0')
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T14:46:30.203Z,
+  _id: new ObjectId('672398466fc5860343be12bf')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:13:01 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking files',
+  files: [ { _id: new ObjectId('6723ac8d661717843373cc61') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:13:00.991Z,
+  _id: new ObjectId('6723ac8d661717843373cc60')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:18:25 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'hey',
+  files: [ { _id: new ObjectId('6723add082ff76ce1e3f6ff1') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:18:24.920Z,
+  _id: new ObjectId('6723add082ff76ce1e3f6ff0')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:24:07 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking',
+  files: [ { _id: new ObjectId('6723af271ff7de3e1930350f') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:24:07.545Z,
+  _id: new ObjectId('6723af271ff7de3e1930350e')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:26:37 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking',
+  files: [ { _id: new ObjectId('6723afbdaa28022f420e4def') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:26:37.051Z,
+  _id: new ObjectId('6723afbdaa28022f420e4dee')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:35:15 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking',
+  files: [ { _id: new ObjectId('6723b1c35b51e6fdd7286890') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:35:15.844Z,
+  _id: new ObjectId('6723b1c35b51e6fdd728688f')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 17:46:13 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking',
+  files: [ { _id: new ObjectId('6723b455951693eb0153f939') } ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T16:46:13.199Z,
+  _id: new ObjectId('6723b455951693eb0153f938')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 18:00:38 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-00-38.620Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-00-38.620Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:00:38.673Z,
+  _id: new ObjectId('6723b7b69c2979c2a5805cf2')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 18:12:46 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Ticket 67210bf8b7f9aec6691fc3b2 updated on Thu Oct 31 2024 18:20:02 GMT+0100 (West Africa Standard Time):
+Field "_id" changed from "67210bf8b7f9aec6691fc3b2" to "67210bf8b7f9aec6691fc3b2"
+Field "userID" changed from "6717fde7d963d196c3c0d522" to "6717fde7d963d196c3c0d522"
+Field "communicationLogs" changed from "[object Object]" to "{
+  message: 'checking files',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'addysmart-high-resolution-logo.png',
+      encoding: '7bit',
+      mimetype: 'image/png',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      path: 'uploads\\supportTicket\\2024-10-31T17-12-46.245Z-addysmart-high-resolution-logo.png',
+      size: 91128
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:12:46.295Z,
+  _id: new ObjectId('6723ba8e69d435d360dd4cfb')
+},{
+  message: 'house file',
+  files: [
+    {
+      fieldname: 'files',
+      originalname: 'exterior-house-6702087.jpg',
+      encoding: '7bit',
+      mimetype: 'image/jpeg',
+      destination: './uploads/supportTicket',
+      filename: '2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      path: 'uploads\\supportTicket\\2024-10-31T17-20-02.497Z-exterior-house-6702087.jpg',
+      size: 201871
+    }
+  ],
+  sentBy: 'user',
+  sentAt: 2024-10-31T17:20:02.740Z,
+  _id: new ObjectId('6723bc4266de2d54595dfd7e')
+}"
+Field "created" changed from "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Tue Oct 29 2024 17:23:20 GMT+0100 (West Africa Standard Time)"
+Field "resolvedDate" changed from "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)" to "Fri Nov 01 2024 17:23:20 GMT+0100 (West Africa Standard Time)"

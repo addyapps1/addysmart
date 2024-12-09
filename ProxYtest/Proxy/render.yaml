@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: nginx-proxy
+    env: docker
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    plan: free

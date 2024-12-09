@@ -1,0 +1,239 @@
+ADVERTIZING_HOST_API_base_url = http://127.0.0.1:7990/
+ADVERTIZING_HOST_API_base_url = http://localhost:7990/
+
+###
+### CAMPAIGNS
+###
+
+# methods: post
+# role: user
+# body = 
+# {
+#   campaignTitle: { type: String, required: true },
+#   campaignDescription: { type: String, required: true },
+#   campaignStartDate: { type: Date, required: true },
+#   campaignEndDate: { type: Date, required: true },
+#   Campaigntype: {
+#     type: String,
+#     required: true,
+#     enum: {
+#       values: [
+#         "Search Ads", // Ads on search engine results pages (e.g., Google, Bing)
+#         "Display Ads", // Banner or image ads on websites
+#         "Social Media Ads", // Ads on platforms like Facebook, Instagram, LinkedIn, Twitter, etc.
+#         "Video Ads", // Video-based advertisements on platforms like YouTube
+#         "Email Campaigns", // Promotional email campaigns
+#         "Native Ads", // Ads that blend into content (often seen in news or media websites)
+#         "Affiliate Marketing", // Ads run through affiliate partnerships
+#         "Remarketing Ads", // Ads targeting users who previously interacted with your site or content
+#         "Influencer Marketing", // Ads or campaigns run through influencers
+#         "Programmatic Ads", // Automated buying and placement of ads
+#         "Shopping Ads", // Product listings with prices and descriptions (e.g., Google Shopping)
+#         "App Install Ads", // Ads promoting the download of mobile applications
+#         "SMS Campaigns", // Promotional SMS campaigns
+#         "Audio Ads", // Ads on streaming platforms like Spotify, Pandora, etc.
+#         "Push Notifications", // Ads sent via browser or app notifications
+#         "Podcast Sponsorship", // Ads or sponsorships in podcasts
+#         "Content Marketing", // Creating and promoting content (blogs, articles, etc.)
+#         "Lead Generation", // Campaigns focused on collecting customer information (e.g., lead forms)
+#         "Webinar Campaigns", // Campaigns promoting online webinars
+#         "Survey Campaigns", // Campaigns focused on gathering customer feedback
+#         "Event Promotion", // Campaigns promoting physical or virtual events
+#         "Referral Campaigns", // Campaigns encouraging users to refer others
+#         "Contests & Giveaways", // Campaigns running contests or promotional giveaways
+#         "Engagement Campaigns", // Campaigns focusing on increasing interaction with content (likes, shares, comments)
+#       ],
+#       message: "{VALUE} is not a valid ad type",
+#     },
+#   },
+# platform: {
+#       type: String,
+#       required: true,
+#       enum: {
+#         values: [
+#           "YouTube",
+#           "Instagram",
+#           "Twitter",
+#           "Facebook",
+#           "TikTok",
+#           "LinkedIn",
+#           "Other",
+#         ],
+#         default: "addysmart",
+#         message: "{VALUE} is not a valid platform",
+#       },
+#     },
+
+#       callToAction: {
+#     text: { type: String, required: true },
+#     link: {
+#       type: String,
+#       required: true,
+#       validate: {
+#         validator: function (v) {
+#           return /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/.test(v); // URL validation
+#         },
+#         message: (props) => `${props.value} is not a valid URL!`,
+#       },
+#     },
+#   },
+#   communityType: {
+#     type: String,
+#     enum: ["Social Media", "Forum", "Group", "Channel", "Page"],
+#     required: true,
+#   },
+#   targetAudience: {
+#     title: { type: String, required: true },
+#     matchCriteria: {
+#       // New field to specify match criteria
+#       type: String,
+#       enum: ["All", "Any", "percentage match", "number of matches"], // Options for matching
+#       default: "All", // Default value
+#     },
+#     matchCriteriaValue: { type: Number, default: 0 }, // Example: Threshold for percentage or number of matches
+#     // Social community and platform details
+#     platform: {
+#       type: String,
+#       required: true,
+#       enum: {
+#         values: [
+#           "YouTube",
+#           "Instagram",
+#           "Twitter",
+#           "Facebook",
+#           "TikTok",
+#           "LinkedIn",
+#           "Other",
+#         ],
+#         default: "addysmart",
+#         message: "{VALUE} is not a valid platform",
+#       },
+#     },
+#     demographics: {
+#       ageRange: { type: String }, // e.g., "18-24", "25-34"
+#       gender: {
+#         type: String,
+#         enum: ["All", "Male", "Female", "Other"],
+#         required: true,
+#       }, // Targeting by gender
+#       maritalStatus: {
+#         type: String,
+#         enum: [
+#           "All",
+#           "single",
+#           "married",
+#           "dating",
+#           "divorced",
+#           "widowed",
+#           "widower",
+#         ],
+#       },
+#       occupation: {
+#         type: String,
+#         enum: [
+#           "Any",
+#           "teacher",
+#           "engineer",
+#           "doctor",
+#           "nurse",
+#           "lawyer",
+#           "artist",
+#           "developer",
+#           "manager",
+#           "entrepreneur",
+#           "scientist",
+#           "accountant",
+#           "salesperson",
+#           "chef",
+#           "writer",
+#           "musician",
+#           "student",
+#           "retired",
+#           "other", // Add any additional occupations as needed
+#         ],
+#       },
+#     },
+#     location: { type: String }, // e.g., "New York", "USA"
+#   },
+#   interests: [{ type: String }], // List of interests
+#   behaviors: [{ type: String }], // List of behaviors
+#   geography: {
+#     type: {
+#       type: String, // "Point" or "Polygon"
+#       enum: ["Point", "Polygon"],
+#       required: true,
+#     },
+#     coordinates: {
+#       type: [[Number]], // For polygons, an array of arrays
+#       required: true,
+#     },
+#     radius: {
+#       type: Number, // Radius in meters, applicable for Point type
+#       required: function () {
+#         return this.type === "Point";
+#       },
+#       min: 0, // Radius cannot be negative
+#     },
+#   },
+#   resourcelink: { type: String, required: true, unique: true },
+#   maxImpressionsPerDay: { type: Number, required: true, default: null },
+#   quantity: { type: Number, required: true, min: 1 },
+#   pricePerUnit: { type: Number, required: true },
+#   totalAmount: { type: Number, required: true },
+
+# }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign
+http://localhost:7990/api/a/v1.00/campaign
+
+# getAll
+# methods: get
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign
+http://localhost:7990/api/a/v1.00/campaign
+
+
+# On one
+# methods: get, patch, put, delete 
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/:_id
+http://localhost:7990/api/a/v1.00/campaign/:_id
+
+
+
+# task
+# methods: get
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/task
+http://localhost:7990/api/a/v1.00/campaign/task
+
+
+# subscribed
+# methods: post
+# role: user
+# body= { campaignId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/subscribed
+http://localhost:7990/api/a/v1.00/campaign/subscribed
+
+
+# viewed
+# methods: post
+# role: user
+# body= { campaignId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/viewed
+http://localhost:7990/api/a/v1.00/campaign/viewed
+
+
+# cta
+# methods: post
+# role: user
+# body= { campaignId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/cta
+http://localhost:7990/api/a/v1.00/campaign/cta
+
+
+
+# conversion
+# methods: get
+# role: thirdparty
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/campaign/conversion
+http://localhost:7990/api/tp/v1.00/campaign/conversion

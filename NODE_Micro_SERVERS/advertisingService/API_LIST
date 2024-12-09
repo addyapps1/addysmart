@@ -1,0 +1,65 @@
+ADVERTIZING_HOST_API_base_url = http://127.0.0.1:7988/
+ADVERTIZING_HOST_API_base_url = http://localhost:7988/
+
+###
+### AD VIDEOS
+###
+
+# methods: post
+# role: user
+# body = 
+# {
+#   adType: { type: String, required: true},
+#   link: { type: String, required: true, unique: true },
+#   dailyPersonsToReachMax: { type: Number, required: true },
+#   dailyPersonsToReachMin: { type: Number, required: true },
+#   endDate: { type: Date, default: Date.now, required: true },
+#   releaseDate: { type: Date, default: Date.now, required: true },
+# }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo
+http://localhost:7988/api/a/v1.00/advideo
+
+# getAll
+# methods: get
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo
+http://localhost:7988/api/a/v1.00/advideo
+
+
+# On one
+# methods: get, patch, put, delete 
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo/:_id
+http://localhost:7988/api/a/v1.00/advideo/:_id
+
+
+# CTA
+# methods: post
+# role: user
+# body = { adId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo/cta
+http://localhost:7988/api/a/v1.00/advideo/cta
+
+
+# Impression
+# methods: post
+# role: user
+# body = { adId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo/impression
+http://localhost:7988/api/a/v1.00/advideo/impression
+
+
+# CTA
+# methods: post
+# role: user
+# body = { adId }
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo/conversion
+http://localhost:7988/api/a/v1.00/advideo/conversion
+
+
+
+# TargetedAd
+# methods: get
+# role: user
+{{ADVERTIZING_HOST_API_base_url}}api/a/v1.00/advideo/targetedad
+http://localhost:7988/api/a/v1.00/advideo/targetedad

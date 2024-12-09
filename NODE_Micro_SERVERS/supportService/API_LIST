@@ -1,0 +1,36 @@
+API_base_url = http://127.0.0.1:7985/
+API_base_url = http://localhost:7985/
+
+###
+### supportticket
+###
+
+# get all users and update mine
+# methods: get/put/patch 
+# role: user
+{{API_base_url}}api/a/v1.00/supportticket/
+http://localhost:7985/api/a/v1.00/supportticket/
+
+
+# one supportticket
+# methods: get,put,patch
+# role: "user"
+{{API_base_url}}api/a/v1.00/supportticket/:_id
+http://localhost:7985/api/a/v1.00/supportticket/:_id
+
+
+
+# get all agents assigned tickets
+# methods: get 
+# role: user
+{{API_base_url}}api/a/v1.00/supportticket/agent
+http://localhost:7985/api/a/v1.00/supportticket/agent
+
+
+###
+### CHATBOT
+###
+# methods: post
+# role: user
+{{API_base_url}}api/a/v1.00/chatbot/minebot
+http://localhost:7985/api/a/v1.00/chatbot/minebot

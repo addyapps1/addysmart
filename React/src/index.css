@@ -1,0 +1,508 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* COLOR PALETTE */
+/* Default light mode (assumed by default) */
+:root {
+  --primary-text-color: #000000; /* White for general text */
+  --secondary-text-color: #3d3b3b; /* White for general text */
+  --highlight-color: #d4af37; /* Rich gold for special elements */
+  --container-bg-color: #ffffff; /* White for containers */
+  --container-head-bg-color: #1e3a5f; /* Dark blue for container head background */
+  --container-head-text-color: #ffffff; /* White text in container head */
+  --background-color: #E8F0FE; /* Light gray background */
+  --background-color-scondary: #b6c7e3;
+
+  --accent-color: #1e3a5f; /* Dark blue */
+  --secondary-accent-color: #f0c75e; /* Bright gold */
+  --light-gray: #f5f5f5; /* Light gray */
+  --dark-gray: #333333; /* Dark gray */
+  --error-color: #d9534f; /* Red for error */
+  --warning-color: #f0ad4e; /* Orange for warning */
+  --success-color: #5cb85c; /* Green for success */
+  --good:#01921e;
+  --bad: #c00101;
+  --white: #ffffff;
+  --black: #000000;
+  --container-border: 2px solid #333333; /* Light gray border with standard width and solid style */
+  /* shadows */
+  --container-shadow-color: rgba(0, 0, 0, 0.1); /* Light shadow color */
+  --container-shadow-offset-x: 0; /* Horizontal offset */
+  --container-shadow-offset-y: 2px; /* Vertical offset */
+  --container-shadow-blur: 5px; /* Blur radius */
+  --container-shadow-spread: 0; /* Spread radius */
+
+  /* Combined shadow property for light mode */
+  --container-shadow: var(--container-shadow-offset-x)
+    var(--container-shadow-offset-y-light) var(--container-shadow-blur)
+    var(--container-shadow-spread-light) var(--container-shadow-color);
+
+  --senderchatbg: #d1e7dd; /* A light, muted green to provide a soft contrast */
+  --senderchattext: #0f5132; /* Dark green text for readability */
+  --recieverchatbg: #cfe2ff; /* A light blue shade for subtle distinction */
+  --recieverchattext: #084298; /* Dark blue for strong contrast */
+
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-text-color: #ffffff; /* White for text in dark mode */
+    --secondary-text-color: #000000; /* White for general text */
+    --highlight-color: #c7930ef1; /* Brighter gold for special elements */
+    --container-bg-color: #0d0d0d; /* Black for containers */
+    --container-head-bg-color: #f5f5f5; /* Light gray for container head background in dark mode */
+    --container-head-text-color: #2d5487; /* Dark blue text in container head in dark mode */
+    --background-color: #232222; /* Dark gray for background */
+    --background-color-scondary: #131111;
+    --accent-color: #2d5487; /* Dark blue */
+    --secondary-accent-color: #d4af37; /* Warm brown-orange as a secondary accent */
+    --light-gray: #474747; /* Darker gray */
+    --dark-gray: #f5f5f5; /* Lighter gray for contrast */
+    --error-color: #d9534f; /* Red for error */
+    --warning-color: #f0ad4e; /* Orange for warning */
+    --warning-color2: #d9534f; /* Orange for warning */
+    --success-color: #5cb85c; /* Green for success */
+    --container-border: 2px solid #f5f5f5; /* Light gray border with standard width and solid style */
+    /* shadows */
+    --container-shadow-color-dark: rgba(
+      255,
+      255,
+      255,
+      0.2
+    ); /* Light shadow color for dark mode */
+    --container-shadow-offset-x: 0; /* Horizontal offset */
+    --container-shadow-offset-y: 2px; /* Vertical offset */
+    --container-shadow-blur: 5px; /* Blur radius */
+    --container-shadow-spread: 0; /* Spread radius */
+
+    /* Combined shadow property for dark mode */
+    --container-shadow: var(--container-shadow-offset-x)
+      var(--container-shadow-offset-y) var(--container-shadow-blur)
+      var(--container-shadow-spread) var(--container-shadow-color);
+
+  --senderchatbg: #dcfce7; /* Equivalent to bg-green-100 */
+  --senderchattext: #16a34a; /* Equivalent to text-green-600 */
+  --recieverchatbg: #dbeafe; /* Equivalent to bg-blue-100 */
+  --recieverchattext: #2563eb; /* Equivalent to text-blue-600 */
+
+  }
+}
+
+
+.containerShadow{
+  box-shadow: var(--container-shadow);
+}
+
+/* //// */
+body {
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+}
+
+.container {
+  background-color: var(--container-bg-color);
+  color: var(--primary-text-color);
+  border: 1px solid var(--dark-gray); /* Optional border for visual separation */
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  color: var(--highlight-color); /* Lighter or more vibrant color on hover */
+}
+
+.error-message {
+  color: var(--error-color);
+}
+
+.warning-message {
+  color: var(--warning-color);
+}
+
+.success-message {
+  color: var(--success-color);
+}
+
+/* Navigation Styles */
+nav {
+  background-color: var(
+    --container-bg-color
+  ); /* White for light mode, black for dark mode */
+  color: var(--primary-text-color); /* Warm brown-orange for text */
+  padding: 15px 20px;
+  /* box-shadow: 0 2px 4px var(--dark-gray);  */
+}
+
+nav ul {
+  list-style: none; /* Remove default list styling */
+  display: flex; /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Space out menu items */
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0 15px; /* Space between items */
+}
+
+nav a, .aLink {
+  color: var(--primary-text-color); /* Warm brown-orange for links */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold for emphasis */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+nav a:hover,.aLinka:hover {
+  color: var(--highlight-color); /* Change to rich gold on hover */
+}
+
+nav a:focus,.aLinka:focus{
+  outline: 2px solid var(--highlight-color); /* Accessibility focus outline */
+  outline-offset: 2px;
+}
+
+/* Header Styles */
+header {
+  background-color: var(
+    --container-bg-color
+  ); /* White for light mode, black for dark mode */
+  color: var(--primary-text-color); /* Warm brown-orange for text */
+  padding: 20px; /* Padding for spacing */
+  /* box-shadow: 0 2px 4px var(--dark-gray);  */
+  text-align: center; /* Centered text */
+  position:fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.formHeader{
+  background-color: var(
+    --container-bg-color
+  ); /* White for light mode, black for dark mode */
+  color: var(--primary-text-color); /* Warm brown-orange for text */
+  padding: 20px; /* Padding for spacing */
+  box-shadow: 0 2px 4px var(--dark-gray); 
+  text-align: center; /* Centered text */
+}
+
+header h1 {
+  margin: 0; /* Remove default margin */
+  font-size: 2.5em; /* Larger font for the header */
+}
+
+/* Main Styles */
+main {
+  width: 100%;
+  background-color: var(--background-color); /* Light gray background */
+  display: flex; /* Flexbox layout for main content */
+  justify-content: start; /* Space between main and aside */
+  flex-direction: column;
+  padding: 4px; /* Padding for spacing */
+  min-height: 85vh;
+  margin-top: 100px;
+
+}
+
+
+
+/* Aside Styles */
+aside {
+  flex: 1; /* Aside takes less space */
+  padding: 20px; /* Padding for spacing */
+  background-color: var(--light-gray); /* Light gray for the aside */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px var(--dark-gray); /* Subtle shadow for depth */
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: var(
+    --container-bg-color
+  ); /* White for light mode, black for dark mode */
+  color: var(--primary-text-color); /* Warm brown-orange for text */
+  text-align: center; /* Centered text */
+  padding: 15px; /* Padding for spacing */
+  /* box-shadow: 0 -2px 4px var(--dark-gray); Shadow for depth */
+}
+
+
+/* Form Styles */
+form {
+  background-color: var(
+    --container-bg-color
+  ); /* White for light mode, black for dark mode */
+  padding: 20px; /* Padding for spacing */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px var(--dark-gray); /* Subtle shadow for depth */
+  margin: 20px 0; /* Margin for spacing */
+}
+
+
+/* Input and Textarea Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding for comfort */
+  margin: 10px 0; /* Margin for spacing */
+  border: 1px solid var(--dark-gray); /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size for readability */
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s; /* Smooth transition */
+}
+
+
+/* Focus Styles for Inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--highlight-color); /* Change border color on focus */
+  box-shadow: 0 0 5px var(--highlight-color); /* Glow effect */
+  outline: none; /* Remove default outline */
+}
+
+/* Label Styles */
+label {
+  font-weight: bold; /* Bold for emphasis */
+  margin-bottom: 5px; /* Margin for spacing */
+  display: block; /* Block display for labels */
+}
+
+/* Button Styles for Form Submission */
+/* button[type="submit"] {
+  background-color: var(--highlight-color);
+  color: #ffffff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 20px; 
+  cursor: pointer;
+  font-size: 16px; 
+  font-weight: bold; 
+  transition:
+    background-color 0.3s,
+    transform 0.2s; 
+} */
+
+/* button[type="submit"]:hover {
+  background-color: var(--secondary-accent-color); 
+  transform: translateY(-2px); 
+} */
+
+button[type="submit"]:focus {
+  outline: 2px solid var(--accent-color); /* Accessibility focus outline */
+  outline-offset: 2px;
+  color: var(--secondary-text-color);
+}
+
+
+button {
+  background-color: var(--accent-color); /* Dark blue in this case */
+  color: var(--secondary-text-color);
+  border: none;
+  cursor: pointer;
+}
+
+button:hover, .button:hover {
+  background-color: var(
+    --secondary-accent-color
+    ); /* Bright gold for hover effect */
+    color:var(--white)
+}
+
+
+/* Image Input */
+input[type="image"] {
+  display: inline-block;
+  max-width: 100%; /* Full width */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+input[type="image"]:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Number Input */
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="number"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* Tel Input */
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="tel"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* Range Input */
+input[type="range"] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+/* Checkbox Input */
+input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: var(--highlight-color); /* Customize checkbox color */
+}
+
+/* Radio Input */
+input[type="radio"] {
+  margin-right: 10px;
+  accent-color: var(--highlight-color); /* Customize radio button color */
+}
+
+/* Date Input */
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="date"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* Search Input */
+input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="search"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* URL Input */
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="url"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* Color Input */
+input[type="color"] {
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+/* Time Input */
+input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="time"]:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+/* Datalist and Select */
+datalist, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--dark-gray);
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
+  outline: none;
+}
+
+
+
+
+.pagelogo{
+  border-radius: 50%;
+  aspect-ratio: 1;
+box-shadow: 0 2px 4px var(--dark-gray);
+}
+
+Shadow{
+ box-shadow: 0 2px 4px var(--dark-gray);
+} 
+
+
+

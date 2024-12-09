@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --margin: 2px; /* Define margin as a CSS variable */
+    --initial-width: 300px; /* Define initial width as a CSS variable */
+    --initial-height: 200px; /* Define initial height as a CSS variable */
+  }
+
+  .event_reciever_div {
+    background-color: var(--dark-gray);
+    /* position: absolute; */
+    position: fixed;
+    cursor: move; /* Set cursor for move area */
+    width: var(--initial-width); /* Set initial width using variable */
+    height: var(--initial-height); /* Set initial height using variable */
+    left: 0; 
+    /* Initial left position */
+    top: 0; 
+    /* Initial top position */
+    border-radius: 4px;
+    z-index: 101;
+    /* box-shadow: 0 0 1px 1px var(--dark-gray); */
+    
+  }
+
+  .moveEvent {
+    background-color: var(--container-bg-color);
+    cursor: move;
+    padding: 4px;
+  }
+
+  .container {
+    margin: var(--margin);
+    width: calc(100% - (2 * var(--margin))); /* Adjust for margin */
+    height: calc(100% - (2 * var(--margin))); /* Adjust for margin */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    background-color: var(--background-color);
+    width: 100%; /* Occupy 100% of container width */
+    flex-grow: 1; /* Fill remaining space vertically */
+    overflow: auto; /* Add scrollbars if content overflows */
+    cursor: default;
+    padding: 4px;
+  }
+
+  .resizeEvent {
+    resize: both;
+    /* overflow: auto; */
+    /* Set cursor for resize area */ 
+    /* cursor: nwse-resize;  */
+    cursor: nwse-resize; /* Set cursor for resize area */
+  }
+
+  /* Media query for mobile screens */
+  @media only screen and (max-width: 767px) {
+    .event_reciever_div {
+      width: 100vw; /* Set width to 100% of viewport width */
+      height: 100vh; /* Set height to 100% of viewport height */
+    }
+  }

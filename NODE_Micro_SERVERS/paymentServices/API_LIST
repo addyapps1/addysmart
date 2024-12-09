@@ -1,0 +1,106 @@
+PayMentPayMentAPI_base_url = http://127.0.0.1:7989/
+PayMentPayMentAPI_base_url = http://localhost:7989/
+
+###
+### TRANSACTIONS
+###
+# deposit
+# methods: post
+# role: user
+# body= {amount}
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/deposit
+http://localhost:7990/api/a/v1.00/transaction/deposit
+
+
+# Verify Deposit
+# methods: get
+# role: user
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/verifydeposit
+http://localhost:7990/api/a/v1.00/transaction/verifydeposit
+
+
+# withdraw
+# methods: post
+# role: user
+# body= {amount}
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/withdraw
+http://localhost:7990/api/a/v1.00/transaction/withdraw
+
+
+# TRANSACTION BY REFERENCEID
+# methods: get
+# role: user
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/t_ref/:referenceId
+http://localhost:7990/api/a/v1.00/transaction/t_ref/:referenceId
+
+
+
+# TRANSACTION
+# methods: get
+# role: user
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/:userID
+http://localhost:7990/api/a/v1.00/transaction/:userID
+
+
+# TRANSACTION
+# methods: put, patch, delete
+# role: supperAdmin, supreme
+{{PayMentAPI_base_url}}api/a/v1.00/transaction/:userID
+http://localhost:7990/api/a/v1.00/transaction/:userID
+
+
+
+
+###
+### USER ACCOUNT DETAILS
+###
+# methods: post (one)
+# role: user
+
+# body= {
+# accountNumber: {
+#     type: String,
+#     required: true,
+#     trim: true,
+#   },
+#   bankName: {
+#     type: String,
+#     required: true,
+#     trim: true,
+#   },
+#   bankCode: {
+#     type: String,
+#     required: true,
+#     trim: true,
+#   },
+#   accountName: {
+#     type: String,
+#     required: true,
+#     trim: true,
+#   },
+#   currency: {
+#     type: String,
+#     default: "NGN", // Default to Nigerian Naira
+#     required: true,
+#     trim: true,
+#   },
+# }
+{{PayMentAPI_base_url}}api/a/v1.00/useraccountdetails
+http://localhost:7990/api/a/v1.00/useraccountdetails
+
+# methods: get (all)
+# role: user
+{{PayMentAPI_base_url}}api/a/v1.00/useraccountdetails
+http://localhost:7990/api/a/v1.00/useraccountdetails
+
+# methods: get (one)
+# role: user
+{{PayMentAPI_base_url}}api/a/v1.00/useraccountdetails/:userID
+http://localhost:7990/api/a/v1.00/useraccountdetails/:userID
+
+
+# TRANSACTION
+# methods: put, patch, delete (one)
+# role: supperAdmin, supreme
+{{PayMentAPI_base_url}}api/a/v1.00/useraccountdetails/:userID
+http://localhost:7990/api/a/v1.00/useraccountdetails/:userID

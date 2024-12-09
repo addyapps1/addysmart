@@ -1,0 +1,36 @@
+# nginx.conf
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    upstream backend_servers {
+        server server1-pezc.onrender.com;  # Server 1 URL
+        server server2-td4j.onrender.com;  # Server 2 URL
+        server server3-689g.onrender.com;  # Server 3 URL
+    }
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://backend_servers;  # Pass requests to the upstream group
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+
+            proxy_connect_timeout 60;
+            proxy_send_timeout 60;
+            proxy_read_timeout 60;
+            send_timeout 60;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            root /usr/share/nginx/html;
+        }
+    }
+}
