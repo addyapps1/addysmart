@@ -4,45 +4,110 @@ import cors from "cors";
 
 const app = express();
 
-// Enable CORS for a specific domain
-app.use(cors({ origin: "https://addyapps.onrender.com" }));
+const allowedOrigins = [
+  "https://addyapps1.onrender.com/check",
+  "https://addyapps2.onrender.com/check",
+  "https://addyapps3.onrender.com/check",
+  "https://addyapps4.onrender.com/check",
+  "https://addyapps5.onrender.com/check",
+  "https://addyapps6.onrender.com/check",
+];
+// app.use(cors({ origin: "https://addyapps.onrender.com" }));
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow this origin
+      } else {
+        console.log("origin", origin);
+        callback(new Error("Not allowed by CORS")); // Reject the request
+      }
+    },
+    credentials: true, // Allow cookies to be sent
+  })
+);
 
 // List of services to keep alive
 const services = [
-  "https://addyapps.onrender.com/check",
-  "https://addysmart-authservice.onrender.com",
-  "https://addysmart-supportservice.onrender.com",
-  "https://addysmart-e-videoservice.onrender.com",
-  "https://addysmart-miningservice.onrender.com",
-  "https://kingdom-adele.onrender.com/check",
+  process.env.ALIVE_AUTH1 ,
+
+  process.env.ALIVE_SUPPORT1,
+
+  process.env.ALIVE_E_VIDEOS1,
+
+  process.env.ALIVE_MINING1,
 ];
 
-// Function to ping services using Fire-and-Forget approach
-const pingServices = () => {
-  services.forEach((service) => {
-    axios
-      .get(service)
-      .then((response) => {
-        console.log(`${service} is awake: ${response.status}`);
-      })
-      .catch((error) => {
+// List of client services to monitor
+const clientServices = [
+  process.env.ALIVE_CL1,
+  process.env.ALIVE_CL2,
+  process.env.ALIVE_CL3,
+  process.env.ALIVE_CL4,
+  process.env.ALIVE_CL5,
+  process.env.ALIVE_CL6,
+];
+
+// Function to ping services
+const pingServices = async (servicesList) => {
+  try {
+    const results = await Promise.allSettled(
+      servicesList.map((service) => axios.get(service))
+    );
+    results.forEach((result, index) => {
+      if (result.status === "fulfilled") {
+        console.log(`${servicesList[index]} is awake: ${result.value.status}`);
+      } else {
         console.error(
-          `Error pinging ${service}:`,
-          error.response?.status || error.message
+          `Failed to reach ${servicesList[index]}: ${
+            result.reason.message || result.reason
+          }`
         );
-      });
-  });
+      }
+    });
+  } catch (error) {
+    console.error("Error pinging services:", error.message);
+  }
 };
 
-// Start pinging services every 14 minutes and 40 seconds
-const intervalId = setInterval(pingServices, (14 * 60 + 40) * 1000);
-pingServices(); // Initial ping on startup
+// Function to ensure at least one ClientService is awake
+const pingClientServices = async () => {
+  try {
+    const results = await Promise.allSettled(
+      clientServices.map((service) => axios.get(service))
+    );
 
-// Stop the interval after one hour (3600 seconds)
+    const awakeServices = results.filter((res) => res.status === "fulfilled");
+
+    if (awakeServices.length > 0) {
+      awakeServices.forEach(({ value }) => {
+        console.log(`${value.config.url} is awake: ${value.status}`);
+      });
+    } else {
+      console.error("ALERT: No client services are awake!");
+    }
+  } catch (error) {
+    console.error("Error checking client services:", error.message);
+  }
+};
+
+// Combined ping function
+const ping = async () => {
+  console.log("Starting ping cycle...");
+  await Promise.all([pingServices(services), pingClientServices()]);
+};
+
+ping(); // Initial ping on startup
+
+// Start pinging every 14 minutes and 40 seconds
+const intervalId = setInterval(ping, (14 * 60 + 40) * 1000);
+
+// Stop the interval after 4 hours
 setTimeout(() => {
   clearInterval(intervalId);
-  console.log("Interval stopped after one hour.");
-}, 3600 * 1000);
+  console.log("Pinging stopped after 4 hours.");
+}, 4 * 3600 * 1000);
 
 // Basic route to confirm the service is running
 app.get("/", (req, res) => {

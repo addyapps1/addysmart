@@ -7,7 +7,8 @@ import AuthHelmet from "./AuthHelmet";
 import ConfirmPasswordStrengthModal from "./ConfirmPasswordStrengthModal";
 
 const ResetPass = () => {
-  const { API_base_url, APP_NAME } = useContext(AuthContext);
+  const { API_base_url, APP_NAME, getNextServerIndex, serverGroups, testProd } =
+    useContext(AuthContext);
 
 
 
@@ -96,7 +97,7 @@ const ResetPass = () => {
 
     try {
       const response = await fetch(
-        `${API_base_url}api/a/v1.00/users/resetpassword/${token}`,
+        `${API_base_url}${!testProd ? getNextServerIndex(serverGroups.AUTH_HOST) : ''}api/a/v1.00/users/resetpassword/${token}`,
         {
           method: "PATCH",
           headers: {

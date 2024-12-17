@@ -48,7 +48,7 @@ const CreateTaskModal = ({ isOpen, onClose }) => {
     }
 
     try {
-      let URL = `${API_E_VideoBase_url}api/a/v1.00/evideo`;
+      let URL = `${API_E_VideoBase_url()}api/a/v1.00/evideo`;
       // let URL = `http://localhost:7983/api/a/v1.00/evideo`;
       const response = await fetch(URL, {
         method: "POST",

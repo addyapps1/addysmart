@@ -10,25 +10,30 @@ import HTMLspecialChars from "../Utils/HTMLspecialChars.js";
 import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js";
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
 import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
+import getNextServerIndex from "../Utils/LoadBalancerManual.js";
 
+const AuthHOST = () => {
+  let url;
 
-let HOST, AuthHOST;
-// Set the appropriate HOST based on environment
-if (process.env.NODE_ENV === "development") {
-  HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-} else if (
-  process.env.NODE_ENV === "production" &&
-  process.env.TestingForProduction === "true"
-) {
-  HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-} else {
-  HOST = process.env.PROD_HOST;
-  AuthHOST = process.env.AUTH_HOST;
-}
+  if (process.env.NODE_ENV === "development") {
+    url = `http://${process.env.DEV_AUTH_HOST}`;
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env.PROD_TEST === "true"
+  ) {
+    url = `http://${process.env.AUTH_HOST}`;
+  } else {
+    url = `http://${process.env.AUTH_HOST}`;
 
+    // Split and modify the URL
+    const [firstPart, secondPart] = url.split(/\.(.+)/);
 
+    // Assuming `getNextServerIndex` is a function that returns a string or number
+    url = `${firstPart}${getNextServerIndex("AUTH_HOST")}.${secondPart}`;
+  }
+
+  return url;
+};
 
 // Exporting functions
 export const getViewedWithinTimes = asyncErrorHandler(

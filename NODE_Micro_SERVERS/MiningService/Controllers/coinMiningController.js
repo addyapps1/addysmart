@@ -31,6 +31,8 @@ const currentMinutes = currentDate.getMinutes();
 const currentSeconds = currentDate.getSeconds();
 const currentMilliseconds = currentDate.getMilliseconds();
 
+
+
 let HOST, AuthHOST, E_VideoHOST, ORGUSERiD;
 // Set the appropriate HOST based on environment
 if (process.env.NODE_ENV === "development") {
@@ -313,7 +315,7 @@ const stageShares = async (userId, ORGUSERiD, referredUID) => {
                 encData: "new",
               });
             }
-            
+
             if (OrgBalance.encData != "new") {
               OrgBalance = await decodeAndVerifyData(OrgBalance);
             }

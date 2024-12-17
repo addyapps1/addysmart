@@ -41,7 +41,7 @@ const WatchcodeModal = ({ videoId, isOpen, onClose }) => {
       console.log("WatchcodeModal videoId", videoId);
 
       const response = await fetch(
-        `${API_MineBase_url}api/a/v1.00/coinmining`,
+        `${API_MineBase_url()}api/a/v1.00/coinmining`,
         {
           method: "POST",
           headers: {

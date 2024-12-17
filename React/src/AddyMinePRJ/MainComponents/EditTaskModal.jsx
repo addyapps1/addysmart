@@ -59,7 +59,7 @@ const EditTaskModal = ({ taskID, isOpen, onClose }) => {
 
     try {
       // API call to update the task
-      let URL = `${API_E_VideoBase_url}api/a/v1.00/evideo/${task._id}`;
+      let URL = `${API_E_VideoBase_url()}api/a/v1.00/evideo/${task._id}`;
       const response = await fetch(URL, {
         method: "PUT",
         headers: {

@@ -1,43 +1,105 @@
 import { createContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import useServerGroups from "../../CustomHooks/useServerGroups";
+import testProd from "../../CustomHooks/useTestProd";
+import useSwitchAccount from "../../CustomHooks/useSwitchAccount";
 
 export const MineContext = createContext(null);
 
 export const MineContextProvider = (props) => {
   const { children } = props; // Destructure children from props
 
-  const SERVICENAME = "Addymine"
+  //// LOAD BALANCER
 
-  let API_MineBase_url;
-  let API_AuthBase_url;
-  let API_E_VideoBase_url;
-  let API_supportBase_url;
-  let testProd = false; // determines which base url that will be used on build with local testing
-  console.log("import.meta.env.MODE", import.meta.env.MODE);
-  if (import.meta.env.MODE === "development" && testProd === true) {
-    console.log("Case1");
-    console.log("testProd", testProd);
-    API_MineBase_url = "https://addysmart-miningservice.onrender.com/";
-    console.log("API_MineBase_url", API_MineBase_url);
-    API_AuthBase_url = "https://addysmart-authservice.onrender.com/";
-    API_E_VideoBase_url = "https://addysmart-e-videoservice.onrender.com/";
-    API_supportBase_url = "https://addysmart-supportservice.onrender.com/";
-  } else if (import.meta.env.MODE === "production") {
-    console.log("Case2");
-    API_MineBase_url = "https://addysmart-miningservice.onrender.com/";
-    console.log("API_MineBase_url", API_MineBase_url);
-    API_AuthBase_url = "https://addysmart-authservice.onrender.com/";
-    API_E_VideoBase_url = "https://addysmart-e-videoservice.onrender.com/";
-    API_supportBase_url = "https://addysmart-supportservice.onrender.com/";
+  // Track the last used suffix for each server group
+  const serverTracker = {};
 
-  } else {
-    console.log("Case3");
-    API_MineBase_url = "http://localhost:7982/";
-    console.log("API_MineBase_url", API_MineBase_url);
-    API_AuthBase_url = "http://localhost:7981/";
-    API_E_VideoBase_url = "http://localhost:7983/";
-    API_supportBase_url = "http://localhost:7985/";
-  }
+  const SwitchAccount = () => {
+    return useSwitchAccount();
+  };
+
+  const getNextServerIndex = (groupName) => {
+    if (!useServerGroups[groupName]) {
+      throw new Error(`Server group ${groupName} does not exist.`);
+    }
+
+    // Initialize the suffix tracker if it doesn't exist
+    if (!serverTracker[groupName]) {
+      serverTracker[groupName] = 0;
+    }
+
+    // Get the number of servers for the group
+    const numServers = useServerGroups[groupName];
+
+    // Calculate the next server index and increment the tracker
+    const nextIndex = serverTracker[groupName] % numServers;
+    serverTracker[groupName]++;
+
+    return nextIndex + 1; // Return 1-based index (e.g., 1, 2, 3)
+  };
+  //// LOAD BALANCER
+
+  const SERVICENAME = "Addymine";
+
+  const API_MineBase_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addysmart-miningservice.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = `https://addy${SwitchAccount()}smart-miningservice${getNextServerIndex("MINING_HOST")}.onrender.com/`;
+    } else {
+      console.log("Case3");
+      url = "http://localhost:7982/";
+    }
+    return url;
+  };
+
+  const API_AuthBase_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addysmart-authservice.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = `https://addy${SwitchAccount()}smart-authservice${getNextServerIndex("AUTH_HOST")}.onrender.com/`;
+    } else {
+      console.log("Case3");
+      url = "http://localhost:7983/";
+    }
+    return url;
+  };
+
+  const API_E_VideoBase_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addysmart-e-videoservice.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = `https://addy${SwitchAccount()}smart-e-videoservice${getNextServerIndex("E_VIDEO_HOST")}.onrender.com/`;
+    } else {
+      console.log("Case3");
+      url = "http://localhost:7981/";
+    }
+    return url;
+  };
+
+  const API_supportBase_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addysmart-e-videoservice.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = `https://addy${SwitchAccount()}smart-e-videoservice${getNextServerIndex("SUPPORT_HOST")}.onrender.com/`;
+    } else {
+      console.log("Case3");
+      url = "http://localhost:7985/";
+    }
+    return url;
+  };
 
   const [referrals, setReferrals] = useState([]);
   const [tasks, setTasks] = useState([]);
@@ -59,7 +121,7 @@ export const MineContextProvider = (props) => {
 
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false); // State to control modal visibility
   const [isUserModalOpen, setIsUserModalOpen] = useState(false); // State to control modal visibility
-const [supportTickets, setSupportTickets] = useState([]);
+  const [supportTickets, setSupportTickets] = useState([]);
   // Close modal function
   const closeSupportModal = () => {
     setIsAdminModalOpen(false);
@@ -76,25 +138,24 @@ const [supportTickets, setSupportTickets] = useState([]);
     setIsUserModalOpen(true);
   };
 
-    const videoRefs = useRef({});
-    const audioRefs = useRef({});
+  const videoRefs = useRef({});
+  const audioRefs = useRef({});
 
-  
-    const handleVideoPlay = (path) => {
-      Object.keys(videoRefs.current).forEach((key) => {
-        if (videoRefs.current[key] && key !== path) {
-          videoRefs.current[key].pause();
-        }
-      });
-    };
+  const handleVideoPlay = (path) => {
+    Object.keys(videoRefs.current).forEach((key) => {
+      if (videoRefs.current[key] && key !== path) {
+        videoRefs.current[key].pause();
+      }
+    });
+  };
 
-    const handleAudioPlay = (path) => {
-      Object.keys(audioRefs.current).forEach((key) => {
-        if (audioRefs.current[key] && key !== path) {
-          audioRefs.current[key].pause();
-        }
-      });
-    };
+  const handleAudioPlay = (path) => {
+    Object.keys(audioRefs.current).forEach((key) => {
+      if (audioRefs.current[key] && key !== path) {
+        audioRefs.current[key].pause();
+      }
+    });
+  };
 
   const contextValue = {
     API_MineBase_url,

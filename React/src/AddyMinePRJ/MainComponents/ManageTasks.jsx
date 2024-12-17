@@ -54,7 +54,7 @@ const ManageTasks = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const URL = `${API_E_VideoBase_url}api/a/v1.00/evideo?page=${currentPage}&limit=${itemsPerPage}`;
+      const URL = `${API_E_VideoBase_url()}api/a/v1.00/evideo?page=${currentPage}&limit=${itemsPerPage}`;
       const response = await fetch(URL, {
         method: "GET",
         credentials: "include", // Include cookies in the request
@@ -107,7 +107,7 @@ const ManageTasks = () => {
       setIsOjjLoading((prevLoading) => ({ ...prevLoading, [taskId]: true }));
 
       try {
-        const URL = `${API_E_VideoBase_url}api/a/v1.00/evideo/${taskId}`;
+        const URL = `${API_E_VideoBase_url()}api/a/v1.00/evideo/${taskId}`;
         const response = await fetch(URL, {
           method: "DELETE",
           credentials: "include", // Include cookies in the request

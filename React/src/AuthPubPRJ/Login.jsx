@@ -41,7 +41,7 @@ const Login = () => {
     console.log("VerificationToken", VerificationToken);
     if (VerificationToken) {
       try {
-        let URL = `${API_base_url}api/a/v1.00/users/verifyemail/${VerificationToken}`;
+        let URL = `${API_base_url()}api/a/v1.00/users/verifyemail/${VerificationToken}`;
         console.log("VerifyURL", URL);
         const response = await fetch(URL, {
           method: "GET",
@@ -115,7 +115,7 @@ const Login = () => {
 
     try {
       console.log("formData", formData);
-      const response = await fetch(`${API_base_url}api/a/v1.00/users/login`, {
+      const response = await fetch(`${API_base_url()}api/a/v1.00/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -18,6 +18,8 @@ import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js"
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
 import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
 
+import getNextServerIndex from "../Utils/LoadBalancerManual.js";
+
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
@@ -31,27 +33,66 @@ const currentMinutes = currentDate.getMinutes();
 const currentSeconds = currentDate.getSeconds();
 const currentMilliseconds = currentDate.getMilliseconds();
 
-let HOST, AuthHOST, E_VideoHOST, ORGUSERiD;
+let HOST, ORGUSERiD;
 // Set the appropriate HOST based on environment
+
 if (process.env.NODE_ENV === "development") {
   HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-  E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
-  ORGUSERiD = process.env.ORGUSERID_DEV;
-} else if (
-  process.env.NODE_ENV === "production" &&
-  process.env.TestingForProduction === "true"
-) {
-  HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-  E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
   ORGUSERiD = process.env.ORGUSERID_DEV;
 } else {
   HOST = process.env.PROD_HOST;
-  AuthHOST = process.env.AUTH_HOST;
-  E_VideoHOST = process.env.E_VIDEO_HOST;
   ORGUSERiD = process.env.ORGUSERID;
 }
+
+
+
+const E_VideoHOST = () => {
+  let url;
+
+  if (process.env.NODE_ENV === "development") {
+    url = `http://${process.env.DEV_E_VideoHOST}`;
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env.PROD_TEST === "true"
+  ) {
+    url = `http://${process.env.E_VideoHOST}`;
+  } else {
+    url = `http://${process.env.E_VideoHOST}`;
+
+    // Split and modify the URL
+    const [firstPart, secondPart] = url.split(/\.(.+)/);
+
+    // Assuming `getNextServerIndex` is a function that returns a string or number
+    url = `${firstPart}${getNextServerIndex("E_VIDEO_HOST")}.${secondPart}`;
+  }
+
+  return url;
+};
+
+
+const AuthHOST = () => {
+  let url;
+
+  if (process.env.NODE_ENV === "development") {
+    url = `http://${process.env.DEV_AUTH_HOST}`;
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env.PROD_TEST === "true"
+  ) {
+    url = `http://${process.env.AUTH_HOST}`;
+  } else {
+    url = `http://${process.env.AUTH_HOST}`;
+
+    // Split and modify the URL
+    const [firstPart, secondPart] = url.split(/\.(.+)/);
+
+    // Assuming `getNextServerIndex` is a function that returns a string or number
+    url = `${firstPart}${getNextServerIndex("AUTH_HOST")}.${secondPart}`;
+  }
+
+  return url;
+};
+
 
 // Function to encrypt data
 const encryptData = (data) => {
@@ -146,7 +187,7 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
     }
 
     // Fetch external video data
-    const e_VideoServiceURL = `http://${E_VideoHOST}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
+    const e_VideoServiceURL = `http://${E_VideoHOST()}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
     const headers = {
       Authorization: `Server ${req.headers.authorization.split(" ")[1]}`,
       serverpassword: serverPassword,

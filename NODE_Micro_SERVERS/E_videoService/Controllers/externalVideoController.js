@@ -16,22 +16,30 @@ import SetUploadsfilePathHandler from "../Utils/SetUploadsfilePathHandler.js";
 import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js";
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
 import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
+import getNextServerIndex from "../Utils/LoadBalancerManual.js";
 
-let HOST, AuthHOST;
-// Set the appropriate HOST based on environment
-if (process.env.NODE_ENV === "development") {
-  HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-} else if (
-  process.env.NODE_ENV === "production" &&
-  process.env.TestingForProduction === "true"
-) {
-  HOST = process.env.DEV_HOST;
-  AuthHOST = process.env.DEV_AUTH_HOST;
-} else {
-  HOST = process.env.PROD_HOST;
-  AuthHOST = process.env.AUTH_HOST;
-}
+const AuthHOST = () => {
+  let url;
+
+  if (process.env.NODE_ENV === "development") {
+    url = `http://${process.env.DEV_AUTH_HOST}`;
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env.PROD_TEST === "true"
+  ) {
+    url = `http://${process.env.AUTH_HOST}`;
+  } else {
+    url = `http://${process.env.AUTH_HOST}`;
+
+    // Split and modify the URL
+    const [firstPart, secondPart] = url.split(/\.(.+)/);
+
+    // Assuming `getNextServerIndex` is a function that returns a string or number
+    url = `${firstPart}${getNextServerIndex("AUTH_HOST")}.${secondPart}`;
+  }
+
+  return url;
+};
 
 // Middleware to delete records older than 24 hours and filter out content the user has viewed within the last 24 hours
 const ViewedContentIdArray = asyncErrorHandler(async (req, res, next) => {

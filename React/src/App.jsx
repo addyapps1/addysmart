@@ -26,6 +26,9 @@ const App = () => {
     </div>
   );
 
+  //  console.log("env test", import.meta.env.MODE);
+  //  console.log("env test", import.meta.env.VITE_ENVTEST);
+
   return (
     <AuthContextProvider>
       <Router>

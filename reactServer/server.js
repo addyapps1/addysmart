@@ -1,10 +1,13 @@
 import express from "express";
 import axios from "axios";
 import path from "path";
+import dotenv from "dotenv";
 import { fileURLToPath } from "url"; // Required to handle import.meta.url
 // Convert import.meta.url to a file path
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: "./config.env" });
 
 const app = express();
 // app.set("trust proxy", true);
@@ -14,13 +17,15 @@ app.use(express.static(path.join(__dirname, "dist"))); // Adjust to your Vite ou
 
 
 const services = [
-  // "https://addyapps.onrender.com/check",
-  "https://addysmart-authservice.onrender.com",
-  "https://addysmart-supportservice.onrender.com",
-  "https://addysmart-e-videoservice.onrender.com",
-  "https://addysmart-miningservice.onrender.com",
-  "https://addysmart-keepalive.onrender.com",
-  // "https://kingdom-adele.onrender.com/check",
+process.env.KEEP_ALIVE,
+
+process.env.ALIVE_AUTH1,
+
+process.env.ALIVE_SUPPORT1,
+
+process.env.ALIVE_E_VIDEOS1,
+
+process.env.ALIVE_MINING1,
 ];
 
 // Function to ping services using Fire-and-Forget approach
@@ -44,7 +49,7 @@ pingServices();
 
 
 const pingService = async () => {
-  const service = "https://addysmart-keepalive.onrender.com";
+  const service = process.env.KEEP_ALIVE;
   try {
     const response = await axios.get(service);
     console.log(`${service} is awake: ${response.status}`);
@@ -53,6 +58,7 @@ const pingService = async () => {
     console.error(`Error pinging ${service}:`, error.message);
   }
 };
+
 
 // Health check endpoint
 app.get("/check", async (req, res) => {

@@ -35,7 +35,7 @@ const SupportTicketChat = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const URL = `${API_supportBase_url}api/a/v1.00/supportticket/${ticketID}`;
+      const URL = `${API_supportBase_url()}api/a/v1.00/supportticket/${ticketID}`;
       const response = await fetch(URL, {
         method: "GET",
         headers: {

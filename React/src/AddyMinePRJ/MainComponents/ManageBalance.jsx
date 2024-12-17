@@ -40,7 +40,7 @@ const ManageBalance = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const URL1 = `${API_MineBase_url}api/a/v1.00/evideo/tasks`;
+      const URL1 = `${API_MineBase_url()}api/a/v1.00/evideo/tasks`;
 
       const response = await fetch(URL1, {
         method: "GET",

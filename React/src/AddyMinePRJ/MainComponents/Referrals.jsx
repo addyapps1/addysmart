@@ -55,7 +55,7 @@ const Referrals = () => {
     setIsLoading(true);
     console.log("Fetching data for user:", User);
     try {
-      const URL1 = `${API_AuthBase_url}api/a/v1.00/referral/user?page=${currentPage}&limit=${itemsPerPage}`;
+      const URL1 = `${API_AuthBase_url()}api/a/v1.00/referral/user?page=${currentPage}&limit=${itemsPerPage}`;
       const response = await fetch(URL1, {
         method: "GET",
         headers: {

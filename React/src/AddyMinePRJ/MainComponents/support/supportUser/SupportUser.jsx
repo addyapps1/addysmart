@@ -43,7 +43,7 @@ const SupportUser = () => {
 
     try {
       const response = await axios.post(
-        `${API_supportBase_url}api/a/v1.00/chatbot/minebot`,
+        `${API_supportBase_url()}api/a/v1.00/chatbot/minebot`,
         { message: userInput, conversationState },
         { headers: { Authorization: `Bearer ${getStoredToken()}` } }
       );

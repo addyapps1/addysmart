@@ -106,8 +106,8 @@ const MineHome = () => {
     setIsLoading(true);
 
     try {
-      let URL1 = `${API_MineBase_url}api/a/v1.00/balance`;
-      let URL2 = `${API_AuthBase_url}api/a/v1.00/referraltask`;
+      let URL1 = `${API_MineBase_url()}api/a/v1.00/balance`;
+      let URL2 = `${API_AuthBase_url()}api/a/v1.00/referraltask`;
       console.log("URL1 ", URL1);
       console.log("URL2 ", URL2);
       const [balanceResponse, referralResponse] = await Promise.all([
@@ -119,6 +119,7 @@ const MineHome = () => {
             authorization: `Bearer ${getStoredToken()}`,
           },
         }),
+
         fetch(URL2, {
           method: "GET",
           credentials: "include", // Include cookies in the request
@@ -187,7 +188,7 @@ const MineHome = () => {
 
   const [copySuccess, setCopySuccess] = useState("");
   const copyToClipboard = () => {
-    const referralLink = `${CLIENT_base_url}?refId=${User.referalID}`; // Replace with your actual referral link
+    const referralLink = `${CLIENT_base_url()}?refId=${User.referalID}`; // Replace with your actual referral link
     navigator.clipboard
       .writeText(referralLink)
       .then(() => {
@@ -204,7 +205,7 @@ const MineHome = () => {
 
     const copyReferralInvitationStatus = () => {
       // Check if essential variables are available
-      if (!CLIENT_base_url || !User?.referalID) {
+      if (!CLIENT_base_url() || !User?.referalID) {
         setCopySuccess("Referral link is not available!");
         return;
       }
@@ -216,7 +217,7 @@ const MineHome = () => {
 🎯 Simple, fun tasks = Real rewards!
 
 I’m already earning—join me now & start too! 🚀 
-📲 ${CLIENT_base_url}?refId=${User.referalID}  
+📲 ${CLIENT_base_url()}?refId=${User.referalID}  
 
 ✨ Don’t miss out! Let’s grow & earn together! 🎉
   `;
@@ -238,7 +239,7 @@ I’m already earning—join me now & start too! 🚀
 
   const copyReferralInvitationMessage = () => {
     // Check if essential variables are available
-    if (!CLIENT_base_url || !User?.referalID) {
+    if (!CLIENT_base_url() || !User?.referalID) {
       setCopySuccess("Referral link is not available!");
       return;
     }
@@ -252,7 +253,7 @@ I’ve just discovered this amazing app called **AddyApps**. Here’s why you’
 
 It’s easy, rewarding, and a great way to make the most of your free time. 🎉  
 Join me and start earning today! Here’s my referral link:  
-📲 ${CLIENT_base_url}?refId=${User.referalID}  
+📲 ${CLIENT_base_url()}?refId=${User.referalID}  
 
 Let’s earn together while supporting creativity online! 💰🚀
   `;
@@ -274,7 +275,7 @@ Let’s earn together while supporting creativity online! 💰🚀
 
   const copyMessageToClipboard = () => {
     // Ensure CLIENT_base_url and User.referalID are defined
-    if (!CLIENT_base_url || !User?.referalID) {
+    if (!CLIENT_base_url() || !User?.referalID) {
       setCopySuccess("Referral link is not available!");
       return;
     }
@@ -296,7 +297,7 @@ Let’s earn together while supporting creativity online! 💰🚀
 
 🔥 Don’t miss this chance to boost your income without spending a dime.
 
-📲 Join Now: ${CLIENT_base_url}?refId=${User.referalID}
+📲 Join Now: ${CLIENT_base_url()}?refId=${User.referalID}
 
 Your journey to effortless earnings starts here. Sign up today and let the rewards roll in! 🚀💵`;
 

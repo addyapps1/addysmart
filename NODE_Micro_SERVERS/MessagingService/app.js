@@ -61,37 +61,51 @@ app.set("view engine", "ejs");
 import cors from "cors";
 // app.use(cors());
 // Dynamically setting the allowed origins based on the environment
-const allowedOrigins =
-  process.env.NODE_ENV === "production"
-    ? [
-        `https://${process.env.AUTH_HOST}`,
-        `https://${process.env.SUPPORT_HOST}`,
-        `https://${process.env.E_VIDEO_HOST}`,
-        `https://${process.env.MINING_HOST}`,
-        `https://${process.env.AFFILIATE_HOST}`,
-        `https://${process.env.MESSAGING_HOST}`,
-        `https://${process.env.ADVERTIZING_HOST}`,
-        `https://${process.env.SPONSORSHIP_HOST}`,
-        `https://${process.env.PAYMENT_HOST}`,
-        `https://${process.env.CAMPAIGN_HOST}`,
-        `https://${process.env.CLIENT_HOST}`,
-        `https://${process.env.CLIENT_HOSTX}`,
-        `https://${process.env.CLIENT_HOST2}`,
-        `https://addysmart-keepalive.onrender.com`,
-      ]
-    : [
-        `http://${process.env.DEV_AUTH_HOST}`,
-        `http://${process.env.DEV_SUPPORT_HOST}`,
-        `http://${process.env.DEV_E_VIDEO_HOST}`,
-        `http://${process.env.DEV_MINING_HOST}`,
-        `http://${process.env.DEV_AFFILIATE_HOST}`,
-        `http://${process.env.DEV_MESSAGING_HOST}`,
-        `http://${process.env.DEV_ADVERTIZING_HOST}`,
-        `http://${process.env.DEV_SPONSORSHIP_HOST}`,
-        `http://${process.env.DEV_PAYMENT_HOST}`,
-        `http://${process.env.DEV_CAMPAIGN_HOST}`,
-        `http://${process.env.DEV_CLIENT_HOST}`,
-      ];
+const SeverHostNames = [
+  "AUTH_HOST",
+  "SUPPORT_HOST",
+  "E_VIDEO_HOST",
+  "MINING_HOST",
+  "AFFILIATE_HOST",
+  "MESSAGING_HOST",
+  "ADVERTIZING_HOST",
+  "SPONSORSHIP_HOST",
+  "PAYMENT_HOST",
+  "CAMPAIGN_HOST",
+];
+
+const clientHostNames = ["CLIENT_HOSTX"];
+
+let allowedOrigins = [];
+
+if (process.env.NODE_ENV === "production") {
+  const suffixes = process.env.PROD_TEST === "true" ? [""] : ["1", "2", "3"];
+
+  // Add production server hosts
+  allowedOrigins = SeverHostNames.flatMap((host) =>
+    suffixes.map((suffix) => `https://${process.env[host]}${suffix}`)
+  );
+
+  // Add client hosts with multiple suffixes
+  const suffixes2 =
+    process.env.PROD_TEST === "true" ? [""] : ["1", "2", "3", "4", "5", "6"];
+
+  clientHostNames.forEach((host) => {
+    suffixes2.forEach((suffix) => {
+      allowedOrigins.push(`https://${process.env[host]}${suffix}`);
+    });
+  });
+
+  // Additional origins
+  allowedOrigins.push(`https://${process.env.CLIENT_HOST}`);
+  allowedOrigins.push(`https://${process.env.CLIENT_HOST2}`);
+  allowedOrigins.push("https://addysmart-keepalive.onrender.com");
+} else {
+  // Use SeverHostNames instead of undefined hostNames
+  allowedOrigins = SeverHostNames.map(
+    (host) => `http://${process.env[`DEV_${host}`]}`
+  );
+}
 
 
 // CORS middleware setup

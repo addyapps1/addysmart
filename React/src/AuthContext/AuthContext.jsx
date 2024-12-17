@@ -1,10 +1,46 @@
 import { createContext, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import useServerGroups from "../CustomHooks/useServerGroups";
+import testProd from "../CustomHooks/useTestProd";
+import useSwitchAccount from "../CustomHooks/useSwitchAccount"
+
 
 export const AuthContext = createContext(null);
 
 export const AuthContextProvider = (props) => {
   const { children } = props; // Destructure children from props
+
+  //// LOAD BALANCER
+
+  // Track the last used suffix for each server group
+  const serverTracker = {};
+
+
+  const SwitchAccount = () => {
+    return useSwitchAccount();
+  };
+
+
+  const getNextServerIndex = (groupName) => {
+    if (!useServerGroups[groupName]) {
+      throw new Error(`Server group ${groupName} does not exist.`);
+    }
+
+    // Initialize the suffix tracker if it doesn't exist
+    if (!serverTracker[groupName]) {
+      serverTracker[groupName] = 0;
+    }
+
+    // Get the number of servers for the group
+    const numServers = useServerGroups[groupName];
+
+    // Calculate the next server index and increment the tracker
+    const nextIndex = serverTracker[groupName] % numServers;
+    serverTracker[groupName]++;
+
+    return nextIndex + 1; // Return 1-based index (e.g., 1, 2, 3)
+  };
+  //// LOAD BALANCER
 
   // const location = useLocation();
   // let API_base_url
@@ -12,35 +48,62 @@ export const AuthContextProvider = (props) => {
   // if(process.env.NODE_ENV === "production"){}
 
   // or
-  let CLIENT_base_url;
 
-  let API_base_url;
-  let testProd = false; // determines which base url that will be used on build with local testing
-  console.log("import.meta.env.MODE", import.meta.env.MODE);
-  if (import.meta.env.MODE === "development" && testProd === true) {
-    console.log("Case1");
-    console.log("testProd", testProd);
-    API_base_url = "https://addysmart-authservice.onrender.com/";
-       // CLIENT_base_url = "https://addyapps.onrender.com/";
-    CLIENT_base_url = "https://addyapps.com/";
-    console.log("API_base_url", API_base_url);
-  } else if (import.meta.env.MODE === "production") {
-    console.log("Case2");
-    API_base_url = "https://addysmart-authservice.onrender.com/";
-    // CLIENT_base_url = "https://addysmart.onrender.com/";
-    // CLIENT_base_url = "https://addyapps.onrender.com/";
-    CLIENT_base_url = "https://addyapps.com/";
-    console.log("API_base_url", API_base_url);
-  } else {
-    console.log("Case3");
-    API_base_url = "http://localhost:7981/";
-    console.log("API_base_url", API_base_url);
-    CLIENT_base_url = "http://localhost:5173/";
-  }
+
+  // console.log("import.meta.env.MODE", import.meta.env.MODE);
+  // if (import.meta.env.MODE === "development" && testProd === true) {
+  //   console.log("Case1");
+  //   console.log("testProd", testProd);
+  //   API_base_url = "https://addysmart-authservice.onrender.com/";
+  //   // CLIENT_base_url = "https://addyapps.onrender.com/";
+  //   CLIENT_base_url = "https://addyapps.com/";
+  //   console.log("API_base_url", API_base_url);
+  // } else if (import.meta.env.MODE === "production") {
+  //   console.log("Case2");
+  //   API_base_url = `https://addysmart-authservice${getNextServerIndex("AUTH_HOST")}.onrender.com/`;
+  //   // CLIENT_base_url = "https://addysmart.onrender.com/";
+  //   // CLIENT_base_url = "https://addyapps.onrender.com/";
+  //   CLIENT_base_url = "https://addyapps.com/";
+  //   console.log("API_base_url", API_base_url);
+  // } else {
+  //   console.log("Case3");
+  //   API_base_url = `http://localhost:7981/${getNextServerIndex("AUTH_HOST")}/`;
+  //   console.log("API_base_url", API_base_url);
+  //   CLIENT_base_url = "http://localhost:5173/";
+  // }
+
+  const API_base_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addysmart-authservice.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = `https://addy${SwitchAccount()}smart-authservice${getNextServerIndex("AUTH_HOST")}.onrender.com/`;
+    } else {
+      console.log("Case3");
+      url = `http://localhost:7981/`;
+    }
+    return url;
+  };
+
+  const CLIENT_base_url = () => {
+    let url;
+    if (import.meta.env.MODE === "development" && testProd === true) {
+      console.log("Case1");
+      url = "https://addyapps.onrender.com/";
+    } else if (import.meta.env.MODE === "production") {
+      console.log("Case2");
+      url = "https://addyapps.com/";
+    } else {
+      console.log("Case3");
+      url = "http://localhost:5173/";
+    }
+    return url;
+  };
 
   const APP_NAME = "ADDYAPPS";
   const APP_NAME2 = `ADDYAPPS'`;
-
 
   const [pageTitle, setPageTitle] = useState("");
 
@@ -129,17 +192,17 @@ export const AuthContextProvider = (props) => {
     return undefined;
   };
 
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    // Toggle sidebar open/close
-    const toggleSidebar = () => {
-      setIsOpen(!isOpen);
-    };
+  // Toggle sidebar open/close
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   const closeSidebar = () => {
-        setIsOpen(false);
-      };
-  
+    setIsOpen(false);
+  };
+
   const sideBarRef = useRef();
   const navCloseSideBarRef = useRef();
 

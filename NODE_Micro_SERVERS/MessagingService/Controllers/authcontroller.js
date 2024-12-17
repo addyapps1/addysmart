@@ -5,6 +5,8 @@ import axios from "axios";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 
+import getNextServerIndex from "../Utils/LoadBalancerManual.js";
+
 import GetUserDetailsFromHeader from "../Utils/GetUserDetailsFromHeader.js";
 import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js";
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
@@ -13,18 +15,43 @@ import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
 
 dotenv.config({ path: "./config.env" });
 let HOST = "";
-let AuthHOST = "";
+
 // Set the appropriate HOST based on environment
 console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === "development") {
   HOST = process.env.DEV_HOST;
   console.log("process.env.DEV_AUTH_HOST", process.env.DEV_AUTH_HOST);
-  AuthHOST = `http://${process.env.DEV_AUTH_HOST}`;
-}  else {
+} else {
   HOST = process.env.PROD_HOST;
-  AuthHOST = `http://${process.env.AUTH_HOST}`;
 }
+
+
+const AuthHOST = () => {
+  let url;
+
+  if (process.env.NODE_ENV === "development") {
+    url = `http://${process.env.DEV_AUTH_HOST}`;
+  } else if (
+    process.env.NODE_ENV === "production" &&
+    process.env.PROD_TEST === "true"
+  ) {
+    url = `http://${process.env.AUTH_HOST}`;
+  } else {
+    url = `http://${process.env.AUTH_HOST}`;
+
+    // Split and modify the URL
+    const [firstPart, secondPart] = url.split(/\.(.+)/);
+
+    // Assuming `getNextServerIndex` is a function that returns a string or number
+    url = `${firstPart}${getNextServerIndex("AUTH_HOST")}.${secondPart}`;
+  }
+
+  return url;
+};
+
+// // Example usage
+// console.log(AuthHOST());
 
 /**
  * Middleware to protect routes and ensure that the user is authenticated.
@@ -91,7 +118,7 @@ export const protect = asyncErrorHandler(async (req, res, next) => {
 
   // 4. Fetch user details from microservice
   // AuthHOST;
-  const userServiceURL = `${AuthHOST}/api/s/v1.00/users/me`;
+  const userServiceURL = `${AuthHOST()}/api/s/v1.00/users/me`;
   const headers = {
     Authorization: `Server ${token.split(" ")[1]}`,
     serverpassword: serverPassword,
