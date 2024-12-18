@@ -30,7 +30,7 @@ app.use(
 
 // List of services to keep alive
 const services = [
-  process.env.ALIVE_AUTH1 ,
+  process.env.ALIVE_AUTH1,
 
   process.env.ALIVE_SUPPORT1,
 
@@ -100,14 +100,44 @@ const ping = async () => {
 
 ping(); // Initial ping on startup
 
+
+const ifDueToPing = async () => {
+  const currentDay = new Date().getDate();
+  const lowerRange = parseInt(process.env.KEEPALIVE_LOWER_RANGE);
+  const upperRange = parseInt(process.env.KEEPALIVE_UPPER_RANGE);
+
+  // Validate environment variables
+  if (isNaN(lowerRange) || isNaN(upperRange)) {
+    console.error(
+      "KEEPALIVE_LOWER_RANGE and KEEPALIVE_UPPER_RANGE must be valid numbers."
+    );
+    return;
+  }
+
+  // Check if the current day is within the range
+  if (currentDay >= lowerRange && currentDay <= upperRange) {
+    try {
+      await ping(); // Call the ping function asynchronously
+    } catch (error) {
+      console.error("Error executing ping:", error.message);
+    }
+  } else {
+    console.log(
+      `Current day ${currentDay} is outside the range (${lowerRange}-${upperRange}).`
+    );
+    clearInterval(intervalId);
+  }
+};
+
+
 // Start pinging every 14 minutes and 40 seconds
-const intervalId = setInterval(ping, (14 * 60 + 40) * 1000);
+const intervalId = setInterval(ifDueToPing, (14 * 60 + 40) * 1000);
 
 // Stop the interval after 4 hours
 setTimeout(() => {
   clearInterval(intervalId);
-  console.log("Pinging stopped after 4 hours.");
-}, 4 * 3600 * 1000);
+  console.log("Pinging stopped after 3 hours.");
+}, 3 * 3600 * 1000);
 
 // Basic route to confirm the service is running
 app.get("/", (req, res) => {
