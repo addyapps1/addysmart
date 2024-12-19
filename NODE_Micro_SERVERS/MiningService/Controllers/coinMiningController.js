@@ -17,9 +17,7 @@ import retryACIDTransaction from "../Utils/RetryACIDTransaction.js"; // Import t
 import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js";
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
 import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
-
 import getNextServerIndex from "../Utils/LoadBalancerManual.js";
-
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
@@ -33,6 +31,30 @@ const currentMinutes = currentDate.getMinutes();
 const currentSeconds = currentDate.getSeconds();
 const currentMilliseconds = currentDate.getMilliseconds();
 
+
+
+// let HOST, AuthHOST, E_VideoHOST, ORGUSERiD;
+// // Set the appropriate HOST based on environment
+// if (process.env.NODE_ENV === "development") {
+//   HOST = process.env.DEV_HOST;
+//   AuthHOST = process.env.DEV_AUTH_HOST;
+//   E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
+//   ORGUSERiD = process.env.ORGUSERID_DEV;
+// } else if (
+//   process.env.NODE_ENV === "production" &&
+//   process.env.TestingForProduction === "true"
+// ) {
+//   HOST = process.env.DEV_HOST;
+//   AuthHOST = process.env.DEV_AUTH_HOST;
+//   E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
+//   ORGUSERiD = process.env.ORGUSERID_DEV;
+// } else {
+//   HOST = process.env.PROD_HOST;
+//   AuthHOST = process.env.AUTH_HOST;
+//   E_VideoHOST = process.env.E_VIDEO_HOST;
+//   ORGUSERiD = process.env.ORGUSERID;
+// }
+
 let HOST, ORGUSERiD;
 // Set the appropriate HOST based on environment
 
@@ -43,7 +65,6 @@ if (process.env.NODE_ENV === "development") {
   HOST = process.env.PROD_HOST;
   ORGUSERiD = process.env.ORGUSERID;
 }
-
 
 
 const E_VideoHOST = () => {
@@ -68,7 +89,6 @@ const E_VideoHOST = () => {
 
   return url;
 };
-
 
 const AuthHOST = () => {
   let url;
@@ -151,7 +171,316 @@ export const getCoinMinings = asyncErrorHandler(async (req, res, next) => {
 //   });
 // });
 
+
+
+const stageShares = async (userId, ORGUSERiD, referredUID) => {
+  let ret;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+
+    let balance = await Balance.findOne({ userID: userId }).session(session);
+    if (!balance) {
+      balance = await Balance.create(
+        [
+          {
+            userID: userId, // Directly using reqUserId
+            TotalMainCoins: 0,
+            TotalBonusCoins: 0,
+            TotalCurrentCoins: 0,
+            TotalCoinsTobeValued: 0,
+            TotalMoneyLeft: 0,
+            month: numberedMonth,
+            dailyMainCoins: 0,
+            dailyBonusCoins: 0,
+            dailyCurrentCoins: 0,
+            dailyTaskCompleted: 0,
+            encData: "new",
+          },
+        ],
+        { session }
+      );
+    }
+
+    console.log("balance x.userID", balance.userID);
+    let lastTargetTaskCompleted = 0;
+    let lastTargetLoss = 0;
+    let OrgBalance = {};
+    if (balance.month != numberedMonth || balance.Day != numberedDay) {
+      if (balance.Day != numberedDay && balance.userID === ORGUSERiD) {
+        if (balance.dailyTaskCompleted < 10) {
+          // remove the bonus from user bunus and add it ORGUSER
+          lastTargetLoss = balance.dailyBonusCoins;
+          balance.dailyTaskCompleted = 0;
+          balance.TotalLostBonus = balance.TotalLostBonus + lastTargetLoss;
+          balance.TotalBonusCoins = balance.TotalBonusCoins - lastTargetLoss;
+
+          ////////////
+          // Fetch or create user orgbalance
+          OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
+            session
+          );
+          if (!OrgBalance) {
+            OrgBalance = await Balance.create({
+              userID: ORGUSERiD,
+              TotalMainCoins: 0,
+              TotalBonusCoins: 0,
+              TotalCurrentCoins: 0,
+              TotalCoinsTobeValued: 0,
+              TotalMoneyLeft: 0,
+              TotalLostBonus: 0,
+              month: numberedMonth,
+              dailyMainCoins: 0,
+              dailyBonusCoins: 0,
+              dailyCurrentCoins: 0,
+              dailyTaskCompleted: 0,
+              encData: "new",
+            });
+          }
+
+          OrgBalance = await decodeAndVerifyData(OrgBalance);
+          OrgBalance.dailyWonBonus = OrgBalance.dailyWonBonus + lastTargetLoss;
+          OrgBalance.TotalWonBonus = OrgBalance.TotalWonBonus + lastTargetLoss;
+
+          if (OrgBalance.month != numberedMonth) {
+            //Stage the coins/shares
+            OrgBalance.TotalCoinsTobeValued =
+              OrgBalance.TotalCoinsTobeValued +
+              OrgBalance.TotalCurrentCoins +
+              OrgBalance.TotalWonBonus;
+            OrgBalance.TotalWonBonus = 0;
+            OrgBalance.dailyWonBonus = 0;
+            OrgBalance.TotalMainCoins = 0;
+            OrgBalance.TotalBonusCoins = 0;
+            OrgBalance.TotalCurrentCoins = 0;
+            OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
+            OrgBalance.month = numberedMonth;
+            OrgBalance.Day = numberedDay;
+            OrgBalance.wonmonth = numberedMonth;
+            OrgBalance.wonDay = numberedDay;
+            OrgBalance.dailyMainCoins = 0;
+            OrgBalance.dailyBonusCoins = 0;
+            OrgBalance.dailyCurrentCoins = 0;
+            OrgBalance.dailyTaskCompleted = 0;
+          }
+          if (userId != ORGUSERiD) {
+            await OrgBalance.save({ session });
+          }
+        }
+
+        lastTargetTaskCompleted = balance.dailyTaskCompleted;
+
+        balance.Day = numberedDay;
+        balance.dailyMainCoins = 0;
+        balance.dailyBonusCoins = 0;
+        balance.dailyCurrentCoins = 0;
+        balance.dailyTaskCompleted = 0;
+      }
+
+      if (balance.month != numberedMonth) {
+        //Stage the coins/shares
+        balance.TotalCoinsTobeValued =
+          balance.TotalCoinsTobeValued +
+          balance.TotalCurrentCoins +
+          balance.TotalWonBonus;
+        balance.TotalWonBonus = 0;
+        balance.dailyWonBonus = 0;
+        balance.TotalMainCoins = 0;
+        balance.TotalBonusCoins = 0;
+        balance.TotalCurrentCoins = 0;
+        balance.TotalMoneyLeft = balance.TotalMoneyLeft;
+        balance.month = numberedMonth;
+        balance.wonmonth = numberedMonth;
+        balance.Day = numberedDay;
+        balance.wonDay = numberedDay;
+        balance.dailyMainCoins = 0;
+        balance.dailyBonusCoins = 0;
+        balance.dailyCurrentCoins = 0;
+        balance.dailyTaskCompleted = 0;
+      }
+    }
+
+    ///////
+
+    ////////////
+
+    // RefBalance
+    // Fetch or create user balance
+    let refBalance;
+    if (referredUID == ORGUSERiD) {
+      refBalance = null;
+    } else {
+      refBalance = await Balance.findOne({
+        userID: referredUID,
+      }).session(session);
+    }
+
+    if (!refBalance && referredUID !== ORGUSERiD) {
+      refBalance = await Balance.create({
+        userID: req.user.referredUID,
+        TotalMainCoins: 0,
+        TotalBonusCoins: 0,
+        TotalCurrentCoins: 0,
+        TotalCoinsTobeValued: 0,
+        TotalMoneyLeft: 0,
+        TotalTaskCompleted: 0,
+        month: numberedMonth,
+        dailyMainCoins: 0,
+        dailyBonusCoins: 0,
+        dailyCurrentCoins: 0,
+        dailyTaskCompleted: 0,
+        encData: "new",
+      });
+    }
+    console.log("RESPONS OK2");
+
+    if (refBalance.encData != "new") {
+      refBalance = await decodeAndVerifyData(refBalance);
+    }
+    
+
+    /////////
+    let lastTargetLossRef = 0;
+
+    if (referredUID !== ORGUSERiD) {
+      if (refBalance.month != numberedMonth || refBalance.Day != numberedDay) {
+        if (refBalance.Day != numberedDay && refBalance.userID === ORGUSERiD) {
+          if (refBalance.dailyTaskCompleted < 10) {
+            // remove the bonus from user bunus and add it ORGUSER
+            lastTargetLossRef = refBalance.dailyBonusCoins;
+            refBalance.dailyTaskCompleted = 0;
+            refBalance.TotalBonusCoins =
+              refBalance.TotalBonusCoins - lastTargetLossRef;
+
+            // Fetch or create user refBalance
+            if (!OrgBalance) {
+              OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
+                session
+              );
+            }
+            if (!OrgBalance) {
+              OrgBalance = new Balance({
+                userID: ORGUSERiD,
+                TotalMainCoins: 0,
+                TotalBonusCoins: 0,
+                TotalCurrentCoins: 0,
+                TotalCoinsTobeValued: 0,
+                TotalMoneyLeft: 0,
+                month: numberedMonth,
+                dailyMainCoins: 0,
+                dailyBonusCoins: 0,
+                dailyCurrentCoins: 0,
+                dailyTaskCompleted: 0,
+                encData: "new",
+              });
+            }
+
+            if (OrgBalance.encData != "new") {
+              OrgBalance = await decodeAndVerifyData(OrgBalance);
+            }
+            OrgBalance.dailyWonBonus =
+              OrgBalance.dailyWonBonus + lastTargetLossRef;
+            OrgBalance.TotalWonBonus =
+              OrgBalance.TotalWonBonus + lastTargetLossRef;
+
+            if (OrgBalance.month != numberedMonth) {
+              //Stage the coins/shares
+              OrgBalance.TotalCoinsTobeValued =
+                OrgBalance.TotalCoinsTobeValued +
+                OrgBalance.TotalCurrentCoins +
+                OrgBalance.TotalWonBonus;
+              OrgBalance.TotalWonBonus = 0;
+              OrgBalance.dailyWonBonus = 0;
+              OrgBalance.TotalMainCoins = 0;
+              OrgBalance.TotalBonusCoins = 0;
+              OrgBalance.TotalCurrentCoins = 0;
+              OrgBalance.TotalTaskCompleted = 0;
+              OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
+              OrgBalance.month = numberedMonth;
+              OrgBalance.Day = numberedDay;
+              OrgBalance.wonmonth = numberedMonth;
+              OrgBalance.wonDay = numberedDay;
+              OrgBalance.dailyMainCoins = 0;
+              OrgBalance.dailyBonusCoins = 0;
+              OrgBalance.dailyCurrentCoins = 0;
+              OrgBalance.dailyTaskCompleted = 0;
+            }
+          }
+          refBalance.Day = numberedDay;
+          refBalance.dailyMainCoins = 0;
+          refBalance.dailyBonusCoins = 0;
+          refBalance.dailyCurrentCoins = 0;
+          refBalance.dailyTaskCompleted = 0;
+        }
+
+        if (refBalance.month != numberedMonth) {
+          //Stage the coins/shares
+          refBalance.TotalCoinsTobeValued =
+            refBalance.TotalCoinsTobeValued +
+            refBalance.TotalCurrentCoins +
+            refBalance.TotalWonBonus;
+          refBalance.TotalWonBonus = 0;
+          refBalance.dailyWonBonus = 0;
+          refBalance.TotalMainCoins = 0;
+          refBalance.TotalBonusCoins = 0;
+          refBalance.TotalCurrentCoins = 0;
+          refBalance.TotalTaskCompleted = 0;
+          refBalance.TotalMoneyLeft = refBalance.TotalMoneyLeft;
+          refBalance.month = numberedMonth;
+          refBalance.wonmonth = numberedMonth;
+          refBalance.Day = numberedDay;
+          refBalance.wonDay = numberedDay;
+          refBalance.dailyMainCoins = 0;
+          refBalance.dailyBonusCoins = 0;
+          refBalance.dailyCurrentCoins = 0;
+          refBalance.dailyTaskCompleted = 0;
+        }
+      }
+    }
+
+    ///////
+
+    if (refBalance.userID != balance.userID && refBalance.length) {
+      await refBalance.save({ validateBeforeSave: false }, { session });
+    } else if (refBalance.length) {
+      balance.dailyWonBonus += refBalance.dailyWonBonus;
+      balance.TotalWonBonus += refBalance.TotalWonBonus;
+    }
+
+    if (OrgBalance.userID != balance.userID && OrgBalance.length) {
+      await refBalance.save({ validateBeforeSave: false }, { session });
+    } else if (OrgBalance.length) {
+      balance.dailyWonBonus += OrgBalance.dailyWonBonus;
+      balance.TotalWonBonus += OrgBalance.TotalWonBonus;
+    }
+
+    if (balance.userID) {
+      await balance.save({ validateBeforeSave: false }, { session });
+    }
+
+    // Commit the transaction
+    await session.commitTransaction();
+    console.log("Transaction committed successfully");
+    ret = "success";
+  } catch (error) {
+    console.error("Transaction failed: ", error);
+    await session.abortTransaction();
+    ret = "failed";
+  } finally {
+    await session.endSession();
+  }
+
+  return ret;
+};
+
 export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
+  console.log("BEFORE STAGING");
+  await stageShares(req.user._id, ORGUSERiD, req.user.referredUID);
+  console.log("AFTER STAGING");
+
+  // return res.status(201).json({
+  //   status: "success",
+  // });
   // Sanitize request body to prevent HTML injection
   req.body = HTMLspecialChars.encode(req.body);
 
@@ -227,7 +556,7 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
         newCoins += 10; // bonus for getting all majic numbers
       }
     } else {
-      console.log("Got here")
+      console.log("Got here");
       let userWatchcodeArray = [
         "watchcode1",
         "watchcode2",
@@ -245,12 +574,11 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       console.log("userWatchcodeArray[1]", userWatchcodeArray[1]);
       console.log("videoWatchcodeArray[1]", videoWatchcodeArray[1]);
       if (userWatchcodeArray[1] == videoWatchcodeArray[1]) {
-        newCoins += PrizeCoins
+        newCoins += PrizeCoins;
         count++;
       }
       if (userWatchcodeArray[2] == videoWatchcodeArray[2]) {
-
-        newCoins += PrizeCoins 
+        newCoins += PrizeCoins;
         count++;
       }
       if (userWatchcodeArray[3] == videoWatchcodeArray[3]) {
@@ -290,15 +618,17 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
     // console.log("Watch Code:", req.body.watchcode);
     // console.log("User:", req.user);
     // console.log("E-Video Data:", e_Video?.data);
-    
+
     // Create a new coinsMining record in a MongoDB transaction
     console.log("Yahooo");
     const coinsMining = await CoinsMining.create([NewCoinsMining], { session });
     
+    console.log("Yahooo2");
     // Fetch or create user balance
     let balance = await Balance.findOne({ userID: req.user._id }).session(
       session
     );
+    console.log("Yahooo3");
 
     if (!balance) {
       balance = await Balance.create({
@@ -316,106 +646,13 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
         encData: "new",
       });
     }
-    // req.user._id;
-    console.log("balance x.userID", balance.userID);
-    let lastTargetTaskCompleted = 0;
-    let lastTargetLoss = 0;
-    let OrgBalance = {};
-    if (balance.month != numberedMonth || balance.Day != numberedDay) {
-      if (balance.Day != numberedDay && balance.userID === ORGUSERiD) {
-        if (balance.dailyTaskCompleted < 10) {
-          // remove the bonus from user bunus and add it ORGUSER
-          lastTargetLoss = balance.dailyBonusCoins;
-          balance.dailyTaskCompleted = 0;
-          balance.TotalLostBonus = balance.TotalLostBonus + lastTargetLoss;
-          balance.TotalBonusCoins = balance.TotalBonusCoins - lastTargetLoss;
 
-          // Fetch or create user balance
-          OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
-            session
-          );
-          if (!OrgBalance) {
-            OrgBalance = await Balance.create({
-              userID: ORGUSERiD,
-              TotalMainCoins: 0,
-              TotalBonusCoins: 0,
-              TotalCurrentCoins: 0,
-              TotalCoinsTobeValued: 0,
-              TotalMoneyLeft: 0,
-              TotalLostBonus: 0,
-              month: numberedMonth,
-              dailyMainCoins: 0,
-              dailyBonusCoins: 0,
-              dailyCurrentCoins: 0,
-              dailyTaskCompleted: 0,
-              encData: "new",
-            });
-          }
-
-          OrgBalance = await decodeAndVerifyData(OrgBalance);
-          OrgBalance.dailyWonBonus = OrgBalance.dailyWonBonus + lastTargetLoss;
-          OrgBalance.TotalWonBonus = OrgBalance.TotalWonBonus + lastTargetLoss;
-
-          if (OrgBalance.month != numberedMonth) {
-            //Stage the coins/shares
-            OrgBalance.TotalCoinsTobeValued =
-              OrgBalance.TotalCoinsTobeValued +
-              OrgBalance.TotalCurrentCoins +
-              OrgBalance.TotalWonBonus;
-            OrgBalance.TotalWonBonus = 0;
-            OrgBalance.dailyWonBonus = 0;
-            OrgBalance.TotalMainCoins = 0;
-            OrgBalance.TotalBonusCoins = 0;
-            OrgBalance.TotalCurrentCoins = 0;
-            OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
-            OrgBalance.month = numberedMonth;
-            OrgBalance.Day = numberedDay;
-            OrgBalance.wonmonth = numberedMonth;
-            OrgBalance.wonDay = numberedDay;
-            OrgBalance.dailyMainCoins = 0;
-            OrgBalance.dailyBonusCoins = 0;
-            OrgBalance.dailyCurrentCoins = 0;
-            OrgBalance.dailyTaskCompleted = 0;
-          }
-          if (req.user.referredUID != ORGUSERiD) {
-            await OrgBalance.save({ session });
-          }
-        }
-        lastTargetTaskCompleted = balance.dailyTaskCompleted;
-
-        balance.Day = numberedDay;
-        balance.dailyMainCoins = 0;
-        balance.dailyBonusCoins = 0;
-        balance.dailyCurrentCoins = 0;
-        balance.dailyTaskCompleted = 0;
-      }
-
-      if (balance.month != numberedMonth) {
-        //Stage the coins/shares
-        balance.TotalCoinsTobeValued =
-          balance.TotalCoinsTobeValued +
-          balance.TotalCurrentCoins +
-          balance.TotalWonBonus;
-        balance.TotalWonBonus = 0;
-        balance.dailyWonBonus = 0;
-        balance.TotalMainCoins = 0;
-        balance.TotalBonusCoins = 0;
-        balance.TotalCurrentCoins = 0;
-        balance.TotalMoneyLeft = balance.TotalMoneyLeft;
-        balance.month = numberedMonth;
-        balance.wonmonth = numberedMonth;
-        balance.wonDay = numberedDay;
-        balance.dailyMainCoins = 0;
-        balance.dailyBonusCoins = 0;
-        balance.dailyCurrentCoins = 0;
-        balance.dailyTaskCompleted = 0;
-      }
-    }
+    console.log("Yahooo4");
 
     // Fetch or create user balance
     let refBalance = {};
-    if (req.user.referredUID == ORGUSERiD) {
-      refBalance = OrgBalance;
+    if (req.user.referredUID == req.user._id) {
+      refBalance = balance;
     } else {
       refBalance = await Balance.findOne({
         userID: req.user.referredUID,
@@ -439,104 +676,9 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
         encData: "new",
       });
     }
-    console.log("RESPONS OK2");
     refBalance = await decodeAndVerifyData(refBalance);
 
-    /////////
-    let lastTargetLossRef = 0;
-
-    if (refBalance.month != numberedMonth || refBalance.Day != numberedDay) {
-      if (refBalance.Day != numberedDay && refBalance.userID === ORGUSERiD) {
-        if (refBalance.dailyTaskCompleted < 10) {
-          // remove the bonus from user bunus and add it ORGUSER
-          lastTargetLossRef = refBalance.dailyBonusCoins;
-          refBalance.dailyTaskCompleted = 0;
-          refBalance.TotalBonusCoins =
-            refBalance.TotalBonusCoins - lastTargetLossRef;
-
-          // Fetch or create user refBalance
-          if (!OrgBalance) {
-            OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
-              session
-            );
-          }
-          if (!OrgBalance) {
-            OrgBalance = new Balance({
-              userID: ORGUSERiD,
-              TotalMainCoins: 0,
-              TotalBonusCoins: 0,
-              TotalCurrentCoins: 0,
-              TotalCoinsTobeValued: 0,
-              TotalMoneyLeft: 0,
-              month: numberedMonth,
-              dailyMainCoins: 0,
-              dailyBonusCoins: 0,
-              dailyCurrentCoins: 0,
-              dailyTaskCompleted: 0,
-              encData: "new",
-            });
-          }
-          OrgBalance = await decodeAndVerifyData(OrgBalance);
-          OrgBalance.dailyWonBonus =
-            OrgBalance.dailyWonBonus + lastTargetLossRef;
-          OrgBalance.TotalWonBonus =
-            OrgBalance.TotalWonBonus + lastTargetLossRef;
-
-          if (OrgBalance.month != numberedMonth) {
-            //Stage the coins/shares
-            OrgBalance.TotalCoinsTobeValued =
-              OrgBalance.TotalCoinsTobeValued +
-              OrgBalance.TotalCurrentCoins +
-              OrgBalance.TotalWonBonus;
-            OrgBalance.TotalWonBonus = 0;
-            OrgBalance.dailyWonBonus = 0;
-            OrgBalance.TotalMainCoins = 0;
-            OrgBalance.TotalBonusCoins = 0;
-            OrgBalance.TotalCurrentCoins = 0;
-            OrgBalance.TotalTaskCompleted = 0;
-            OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
-            OrgBalance.month = numberedMonth;
-            OrgBalance.Day = numberedDay;
-            OrgBalance.wonmonth = numberedMonth;
-            OrgBalance.wonDay = numberedDay;
-            OrgBalance.dailyMainCoins = 0;
-            OrgBalance.dailyBonusCoins = 0;
-            OrgBalance.dailyCurrentCoins = 0;
-            OrgBalance.dailyTaskCompleted = 0;
-          }
-        }
-        refBalance.Day = numberedDay;
-        refBalance.dailyMainCoins = 0;
-        refBalance.dailyBonusCoins = 0;
-        refBalance.dailyCurrentCoins = 0;
-        refBalance.dailyTaskCompleted = 0;
-      }
-
-      if (refBalance.month != numberedMonth) {
-        //Stage the coins/shares
-        refBalance.TotalCoinsTobeValued =
-          refBalance.TotalCoinsTobeValued +
-          refBalance.TotalCurrentCoins +
-          refBalance.TotalWonBonus;
-        refBalance.TotalWonBonus = 0;
-        refBalance.dailyWonBonus = 0;
-        refBalance.TotalMainCoins = 0;
-        refBalance.TotalBonusCoins = 0;
-        refBalance.TotalCurrentCoins = 0;
-        refBalance.TotalTaskCompleted = 0;
-        refBalance.TotalMoneyLeft = refBalance.TotalMoneyLeft;
-        refBalance.month = numberedMonth;
-        refBalance.wonmonth = numberedMonth;
-        refBalance.wonDay = numberedDay;
-        refBalance.dailyMainCoins = 0;
-        refBalance.dailyBonusCoins = 0;
-        refBalance.dailyCurrentCoins = 0;
-        refBalance.dailyTaskCompleted = 0;
-      }
-    }
-
-    /////////
-    console.log("RESPONS OK3");
+    console.log("RESPONS OK2");
 
     // Referral Bonus
     let bonusData = {
@@ -551,6 +693,8 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
     let NewBonus = {
       ...bonusData,
     };
+
+    console.log("RESPONS OK3");
 
     // Statement data
     let statementData = {
@@ -567,10 +711,11 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       oldCoins: balance.TotalCurrentCoins,
       minedCoins: newCoins,
       newCoins: balance.TotalCurrentCoins + newCoins,
-      yestTargetLoss: lastTargetLoss,
-      yestTargetTaskCompleted: lastTargetTaskCompleted,
+      // yestTargetLoss: lastTargetLoss,
+      // yestTargetTaskCompleted: lastTargetTaskCompleted,
       month: numberedMonth,
     };
+    console.log("RESPONS OK4");
 
     let statement = {
       ...statementData,
@@ -631,23 +776,9 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       session,
     });
 
-    if (req.user.referredUID != ORGUSERiD && OrgBalance.length) {
-      await OrgBalance.save({ validateBeforeSave: false }, { session });
-    } else {
-      // update with new data and save
-      balance.dailyWonBonus = balance.dailyWonBonus + lastTargetLoss;
-      balance.TotalWonBonus = balance.TotalWonBonus + lastTargetLoss;
-    }
-
     if (refBalance.userID != balance.userID && refBalance.length) {
       await refBalance.save({ validateBeforeSave: false }, { session });
-    } else {
-      // update with new data and save
-      // update with new data and save
-      balance.dailyWonBonus = balance.dailyWonBonus + lastTargetLossRef;
-      balance.TotalWonBonus = balance.TotalWonBonus + lastTargetLossRef;
     }
-
     // Save balance
 
     if (balance.userID) {
