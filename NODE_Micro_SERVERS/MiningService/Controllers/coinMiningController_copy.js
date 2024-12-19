@@ -18,8 +18,6 @@ import * as SymmetricEncryption from "../Utils_Enc/SYMMETRIC_encryptionUtils.js"
 import decodeAndVerifyData from "../Utils_Enc/decodeAndVerifyData.js";
 import limitEncDetaFromServe from "../Utils_Enc/limitEncDetaFromServe.js";
 
-import getNextServerIndex from "../Utils/LoadBalancerManual.js";
-
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
@@ -33,66 +31,29 @@ const currentMinutes = currentDate.getMinutes();
 const currentSeconds = currentDate.getSeconds();
 const currentMilliseconds = currentDate.getMilliseconds();
 
-let HOST, ORGUSERiD;
-// Set the appropriate HOST based on environment
 
+
+let HOST, AuthHOST, E_VideoHOST, ORGUSERiD;
+// Set the appropriate HOST based on environment
 if (process.env.NODE_ENV === "development") {
   HOST = process.env.DEV_HOST;
+  AuthHOST = process.env.DEV_AUTH_HOST;
+  E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
+  ORGUSERiD = process.env.ORGUSERID_DEV;
+} else if (
+  process.env.NODE_ENV === "production" &&
+  process.env.TestingForProduction === "true"
+) {
+  HOST = process.env.DEV_HOST;
+  AuthHOST = process.env.DEV_AUTH_HOST;
+  E_VideoHOST = process.env.DEV_E_VIDEO_HOST;
   ORGUSERiD = process.env.ORGUSERID_DEV;
 } else {
   HOST = process.env.PROD_HOST;
+  AuthHOST = process.env.AUTH_HOST;
+  E_VideoHOST = process.env.E_VIDEO_HOST;
   ORGUSERiD = process.env.ORGUSERID;
 }
-
-
-
-const E_VideoHOST = () => {
-  let url;
-
-  if (process.env.NODE_ENV === "development") {
-    url = `http://${process.env.DEV_E_VideoHOST}`;
-  } else if (
-    process.env.NODE_ENV === "production" &&
-    process.env.PROD_TEST === "true"
-  ) {
-    url = `http://${process.env.E_VideoHOST}`;
-  } else {
-    url = `http://${process.env.E_VideoHOST}`;
-
-    // Split and modify the URL
-    const [firstPart, secondPart] = url.split(/\.(.+)/);
-
-    // Assuming `getNextServerIndex` is a function that returns a string or number
-    url = `${firstPart}${getNextServerIndex("E_VIDEO_HOST")}.${secondPart}`;
-  }
-
-  return url;
-};
-
-
-const AuthHOST = () => {
-  let url;
-
-  if (process.env.NODE_ENV === "development") {
-    url = `http://${process.env.DEV_AUTH_HOST}`;
-  } else if (
-    process.env.NODE_ENV === "production" &&
-    process.env.PROD_TEST === "true"
-  ) {
-    url = `http://${process.env.AUTH_HOST}`;
-  } else {
-    url = `http://${process.env.AUTH_HOST}`;
-
-    // Split and modify the URL
-    const [firstPart, secondPart] = url.split(/\.(.+)/);
-
-    // Assuming `getNextServerIndex` is a function that returns a string or number
-    url = `${firstPart}${getNextServerIndex("AUTH_HOST")}.${secondPart}`;
-  }
-
-  return url;
-};
-
 
 // Function to encrypt data
 const encryptData = (data) => {
@@ -151,172 +112,37 @@ export const getCoinMinings = asyncErrorHandler(async (req, res, next) => {
 //   });
 // });
 
-export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
-  // Sanitize request body to prevent HTML injection
-  req.body = HTMLspecialChars.encode(req.body);
 
-  // Start a MongoDB session and transaction
+
+const stageShares = async (userId, ORGUSERiD, referredUID) => {
+  let ret;
   const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
-    // Process files if they exist in the request
-    if (req.files) {
-      const filesArrayOfObjects = ProcessMultipleFilesArrayOfObjects(req);
-      req.body.files = filesArrayOfObjects;
-    }
+    session.startTransaction();
 
-    // Query to check if the user has watched the video in the last 24 hours
-    const coinsMiningViewed = await CoinsMining.findOne({
-      userID: req.user._id,
-      VideoId: req.body.videoId,
-      nextViewTime: { $gt: Date.now() }, // Check within last 24 hours
-    });
-
-    // If a record is found, return an error
-    if (coinsMiningViewed) {
-      const message =
-        "Sorry, you have already completed this task within the last 24 hours.";
-
-      console.log(message);
-
-      return res.status(201).json({
-        status: "error", // Change to "error" to clarify it's a failed request
-        alreadydone: message,
-      });
-    }
-
-    // Fetch external video data
-    const e_VideoServiceURL = `http://${E_VideoHOST()}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
-    const headers = {
-      Authorization: `Server ${req.headers.authorization.split(" ")[1]}`,
-      serverpassword: serverPassword,
-    };
-
-    const { data: e_Video } = await axios.get(e_VideoServiceURL, {
-      headers,
-    });
-
-    console.log("GOTR HRRRb e_Video ", e_Video);
-
-    if (!e_Video) {
-      throw new CustomError("Video data not found", 404);
-    }
-    console.log("e_Video.watchcode", e_Video.data.watchcode);
-
-    let PrizeCoins = 20;
-    let newCoins = 0;
-    let videoWatchcodeArray = e_Video.data.watchcode.split(" ");
-
-    if (req.body.watchcode) {
-      let userWatchcodeArray = req.body.watchcode.trim().split(/\s+/); // Handles multiple spaces
-      let count = 0;
-
-      for (let value of videoWatchcodeArray) {
-        let bonus = 0; // for the first 30 sec
-        if (userWatchcodeArray.includes(value)) {
-          if (value.length >= 6) {
-            bonus = 10;
-          }
-          newCoins += PrizeCoins + bonus;
-          count++;
-        }
-      }
-
-      if (count === videoWatchcodeArray.length) {
-        newCoins += 10; // bonus for getting all majic numbers
-      }
-    } else {
-      console.log("Got here")
-      let userWatchcodeArray = [
-        "watchcode1",
-        "watchcode2",
-        "watchcode3",
-        "watchcode4",
-      ].map((code) => req.body[code]?.trim() || "");
-
-      req.body.watchcode = userWatchcodeArray.join(" ");
-
-      console.log("userWatchcodeArray", userWatchcodeArray);
-
-      let count = 0;
-
-      let bonus = 0; // for the first 30 sec
-      console.log("userWatchcodeArray[1]", userWatchcodeArray[1]);
-      console.log("videoWatchcodeArray[1]", videoWatchcodeArray[1]);
-      if (userWatchcodeArray[1] == videoWatchcodeArray[1]) {
-        newCoins += PrizeCoins
-        count++;
-      }
-      if (userWatchcodeArray[2] == videoWatchcodeArray[2]) {
-
-        newCoins += PrizeCoins 
-        count++;
-      }
-      if (userWatchcodeArray[3] == videoWatchcodeArray[3]) {
-        newCoins += PrizeCoins;
-        count++;
-      }
-
-      if (userWatchcodeArray[2] == videoWatchcodeArray[2]) {
-        newCoins += PrizeCoins;
-        count++;
-      }
-
-      if (count == 4) {
-        newCoins += 20; // bonus for getting all majic numbers
-      }
-    }
-
-    console.log("newCoins", newCoins);
-    req.body.coins = newCoins;
-    let NewCoinsMining = {
-      userID: req.user._id,
-      activity: "E-Video",
-      coins: newCoins,
-      VideoId: req.body.videoId,
-      Watchcode: req.body.watchcode,
-      nextViewTime: e_Video.data.nextViewTime,
-      month: numberedMonth,
-      day: numberedDay,
-    };
-
-    // Encrypt the data and store it in the encData field
-    NewCoinsMining.encData = encryptData({ ...NewCoinsMining });
-    // console.log("e_Video", e_Video);
-    // console.log("NewCoinsMining:", NewCoinsMining);
-    // console.log("Request Body:", req.body);
-    // console.log("Video ID:", req.body.videoId);
-    // console.log("Watch Code:", req.body.watchcode);
-    // console.log("User:", req.user);
-    // console.log("E-Video Data:", e_Video?.data);
-    
-    // Create a new coinsMining record in a MongoDB transaction
-    console.log("Yahooo");
-    const coinsMining = await CoinsMining.create([NewCoinsMining], { session });
-    
-    // Fetch or create user balance
-    let balance = await Balance.findOne({ userID: req.user._id }).session(
-      session
-    );
-
+    let balance = await Balance.findOne({ userID: userId }).session(session);
     if (!balance) {
-      balance = await Balance.create({
-        userID: req.user._id,
-        TotalMainCoins: 0,
-        TotalBonusCoins: 0,
-        TotalCurrentCoins: 0,
-        TotalCoinsTobeValued: 0,
-        TotalMoneyLeft: 0,
-        month: numberedMonth,
-        dailyMainCoins: 0,
-        dailyBonusCoins: 0,
-        dailyCurrentCoins: 0,
-        dailyTaskCompleted: 0,
-        encData: "new",
-      });
+      balance = await Balance.create(
+        [
+          {
+            userID: userId, // Directly using reqUserId
+            TotalMainCoins: 0,
+            TotalBonusCoins: 0,
+            TotalCurrentCoins: 0,
+            TotalCoinsTobeValued: 0,
+            TotalMoneyLeft: 0,
+            month: numberedMonth,
+            dailyMainCoins: 0,
+            dailyBonusCoins: 0,
+            dailyCurrentCoins: 0,
+            dailyTaskCompleted: 0,
+            encData: "new",
+          },
+        ],
+        { session }
+      );
     }
-    // req.user._id;
+
     console.log("balance x.userID", balance.userID);
     let lastTargetTaskCompleted = 0;
     let lastTargetLoss = 0;
@@ -330,7 +156,8 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
           balance.TotalLostBonus = balance.TotalLostBonus + lastTargetLoss;
           balance.TotalBonusCoins = balance.TotalBonusCoins - lastTargetLoss;
 
-          // Fetch or create user balance
+          ////////////
+          // Fetch or create user orgbalance
           OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
             session
           );
@@ -377,10 +204,11 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
             OrgBalance.dailyCurrentCoins = 0;
             OrgBalance.dailyTaskCompleted = 0;
           }
-          if (req.user.referredUID != ORGUSERiD) {
+          if (userId != ORGUSERiD) {
             await OrgBalance.save({ session });
           }
         }
+
         lastTargetTaskCompleted = balance.dailyTaskCompleted;
 
         balance.Day = numberedDay;
@@ -404,6 +232,7 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
         balance.TotalMoneyLeft = balance.TotalMoneyLeft;
         balance.month = numberedMonth;
         balance.wonmonth = numberedMonth;
+        balance.Day = numberedDay;
         balance.wonDay = numberedDay;
         balance.dailyMainCoins = 0;
         balance.dailyBonusCoins = 0;
@@ -412,10 +241,359 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       }
     }
 
+    ///////
+
+    ////////////
+
+    // RefBalance
+    // Fetch or create user balance
+    let refBalance;
+    if (referredUID == ORGUSERiD) {
+      refBalance = null;
+    } else {
+      refBalance = await Balance.findOne({
+        userID: referredUID,
+      }).session(session);
+    }
+
+    if (!refBalance && referredUID !== ORGUSERiD) {
+      refBalance = await Balance.create({
+        userID: req.user.referredUID,
+        TotalMainCoins: 0,
+        TotalBonusCoins: 0,
+        TotalCurrentCoins: 0,
+        TotalCoinsTobeValued: 0,
+        TotalMoneyLeft: 0,
+        TotalTaskCompleted: 0,
+        month: numberedMonth,
+        dailyMainCoins: 0,
+        dailyBonusCoins: 0,
+        dailyCurrentCoins: 0,
+        dailyTaskCompleted: 0,
+        encData: "new",
+      });
+    }
+    console.log("RESPONS OK2");
+
+    if (refBalance.encData != "new") {
+      refBalance = await decodeAndVerifyData(refBalance);
+    }
+    
+
+    /////////
+    let lastTargetLossRef = 0;
+
+    if (referredUID !== ORGUSERiD) {
+      if (refBalance.month != numberedMonth || refBalance.Day != numberedDay) {
+        if (refBalance.Day != numberedDay && refBalance.userID === ORGUSERiD) {
+          if (refBalance.dailyTaskCompleted < 10) {
+            // remove the bonus from user bunus and add it ORGUSER
+            lastTargetLossRef = refBalance.dailyBonusCoins;
+            refBalance.dailyTaskCompleted = 0;
+            refBalance.TotalBonusCoins =
+              refBalance.TotalBonusCoins - lastTargetLossRef;
+
+            // Fetch or create user refBalance
+            if (!OrgBalance) {
+              OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
+                session
+              );
+            }
+            if (!OrgBalance) {
+              OrgBalance = new Balance({
+                userID: ORGUSERiD,
+                TotalMainCoins: 0,
+                TotalBonusCoins: 0,
+                TotalCurrentCoins: 0,
+                TotalCoinsTobeValued: 0,
+                TotalMoneyLeft: 0,
+                month: numberedMonth,
+                dailyMainCoins: 0,
+                dailyBonusCoins: 0,
+                dailyCurrentCoins: 0,
+                dailyTaskCompleted: 0,
+                encData: "new",
+              });
+            }
+
+            if (OrgBalance.encData != "new") {
+              OrgBalance = await decodeAndVerifyData(OrgBalance);
+            }
+            OrgBalance.dailyWonBonus =
+              OrgBalance.dailyWonBonus + lastTargetLossRef;
+            OrgBalance.TotalWonBonus =
+              OrgBalance.TotalWonBonus + lastTargetLossRef;
+
+            if (OrgBalance.month != numberedMonth) {
+              //Stage the coins/shares
+              OrgBalance.TotalCoinsTobeValued =
+                OrgBalance.TotalCoinsTobeValued +
+                OrgBalance.TotalCurrentCoins +
+                OrgBalance.TotalWonBonus;
+              OrgBalance.TotalWonBonus = 0;
+              OrgBalance.dailyWonBonus = 0;
+              OrgBalance.TotalMainCoins = 0;
+              OrgBalance.TotalBonusCoins = 0;
+              OrgBalance.TotalCurrentCoins = 0;
+              OrgBalance.TotalTaskCompleted = 0;
+              OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
+              OrgBalance.month = numberedMonth;
+              OrgBalance.Day = numberedDay;
+              OrgBalance.wonmonth = numberedMonth;
+              OrgBalance.wonDay = numberedDay;
+              OrgBalance.dailyMainCoins = 0;
+              OrgBalance.dailyBonusCoins = 0;
+              OrgBalance.dailyCurrentCoins = 0;
+              OrgBalance.dailyTaskCompleted = 0;
+            }
+          }
+          refBalance.Day = numberedDay;
+          refBalance.dailyMainCoins = 0;
+          refBalance.dailyBonusCoins = 0;
+          refBalance.dailyCurrentCoins = 0;
+          refBalance.dailyTaskCompleted = 0;
+        }
+
+        if (refBalance.month != numberedMonth) {
+          //Stage the coins/shares
+          refBalance.TotalCoinsTobeValued =
+            refBalance.TotalCoinsTobeValued +
+            refBalance.TotalCurrentCoins +
+            refBalance.TotalWonBonus;
+          refBalance.TotalWonBonus = 0;
+          refBalance.dailyWonBonus = 0;
+          refBalance.TotalMainCoins = 0;
+          refBalance.TotalBonusCoins = 0;
+          refBalance.TotalCurrentCoins = 0;
+          refBalance.TotalTaskCompleted = 0;
+          refBalance.TotalMoneyLeft = refBalance.TotalMoneyLeft;
+          refBalance.month = numberedMonth;
+          refBalance.wonmonth = numberedMonth;
+          refBalance.Day = numberedDay;
+          refBalance.wonDay = numberedDay;
+          refBalance.dailyMainCoins = 0;
+          refBalance.dailyBonusCoins = 0;
+          refBalance.dailyCurrentCoins = 0;
+          refBalance.dailyTaskCompleted = 0;
+        }
+      }
+    }
+
+    ///////
+
+    if (refBalance.userID != balance.userID && refBalance.length) {
+      await refBalance.save({ validateBeforeSave: false }, { session });
+    } else if (refBalance.length) {
+      balance.dailyWonBonus += refBalance.dailyWonBonus;
+      balance.TotalWonBonus += refBalance.TotalWonBonus;
+    }
+
+    if (OrgBalance.userID != balance.userID && OrgBalance.length) {
+      await refBalance.save({ validateBeforeSave: false }, { session });
+    } else if (OrgBalance.length) {
+      balance.dailyWonBonus += OrgBalance.dailyWonBonus;
+      balance.TotalWonBonus += OrgBalance.TotalWonBonus;
+    }
+
+    if (balance.userID) {
+      await balance.save({ validateBeforeSave: false }, { session });
+    }
+
+    // Commit the transaction
+    await session.commitTransaction();
+    console.log("Transaction committed successfully");
+    ret = "success";
+  } catch (error) {
+    console.error("Transaction failed: ", error);
+    await session.abortTransaction();
+    ret = "failed";
+  } finally {
+    await session.endSession();
+  }
+
+  return ret;
+};
+
+export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
+  console.log("BEFORE STAGING");
+  await stageShares(req.user._id, ORGUSERiD, req.user.referredUID);
+  console.log("AFTER STAGING");
+
+  // return res.status(201).json({
+  //   status: "success",
+  // });
+  // Sanitize request body to prevent HTML injection
+  req.body = HTMLspecialChars.encode(req.body);
+
+  // Start a MongoDB session and transaction
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    // Process files if they exist in the request
+    if (req.files) {
+      const filesArrayOfObjects = ProcessMultipleFilesArrayOfObjects(req);
+      req.body.files = filesArrayOfObjects;
+    }
+
+    // Query to check if the user has watched the video in the last 24 hours
+    const coinsMiningViewed = await CoinsMining.findOne({
+      userID: req.user._id,
+      VideoId: req.body.videoId,
+      nextViewTime: { $gt: Date.now() }, // Check within last 24 hours
+    });
+
+    // If a record is found, return an error
+    if (coinsMiningViewed) {
+      const message =
+        "Sorry, you have already completed this task within the last 24 hours.";
+
+      console.log(message);
+
+      return res.status(201).json({
+        status: "error", // Change to "error" to clarify it's a failed request
+        alreadydone: message,
+      });
+    }
+
+    // Fetch external video data
+    const e_VideoServiceURL = `http://${E_VideoHOST}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
+    const headers = {
+      Authorization: `Server ${req.headers.authorization.split(" ")[1]}`,
+      serverpassword: serverPassword,
+    };
+
+    const { data: e_Video } = await axios.get(e_VideoServiceURL, {
+      headers,
+    });
+
+    console.log("GOTR HRRRb e_Video ", e_Video);
+
+    if (!e_Video) {
+      throw new CustomError("Video data not found", 404);
+    }
+    console.log("e_Video.watchcode", e_Video.data.watchcode);
+
+    let PrizeCoins = 20;
+    let newCoins = 0;
+    let videoWatchcodeArray = e_Video.data.watchcode.split(" ");
+
+    if (req.body.watchcode) {
+      let userWatchcodeArray = req.body.watchcode.trim().split(/\s+/); // Handles multiple spaces
+      let count = 0;
+
+      for (let value of videoWatchcodeArray) {
+        let bonus = 0; // for the first 30 sec
+        if (userWatchcodeArray.includes(value)) {
+          if (value.length >= 6) {
+            bonus = 10;
+          }
+          newCoins += PrizeCoins + bonus;
+          count++;
+        }
+      }
+
+      if (count === videoWatchcodeArray.length) {
+        newCoins += 10; // bonus for getting all majic numbers
+      }
+    } else {
+      console.log("Got here");
+      let userWatchcodeArray = [
+        "watchcode1",
+        "watchcode2",
+        "watchcode3",
+        "watchcode4",
+      ].map((code) => req.body[code]?.trim() || "");
+
+      req.body.watchcode = userWatchcodeArray.join(" ");
+
+      console.log("userWatchcodeArray", userWatchcodeArray);
+
+      let count = 0;
+
+      let bonus = 0; // for the first 30 sec
+      console.log("userWatchcodeArray[1]", userWatchcodeArray[1]);
+      console.log("videoWatchcodeArray[1]", videoWatchcodeArray[1]);
+      if (userWatchcodeArray[1] == videoWatchcodeArray[1]) {
+        newCoins += PrizeCoins;
+        count++;
+      }
+      if (userWatchcodeArray[2] == videoWatchcodeArray[2]) {
+        newCoins += PrizeCoins;
+        count++;
+      }
+      if (userWatchcodeArray[3] == videoWatchcodeArray[3]) {
+        newCoins += PrizeCoins;
+        count++;
+      }
+
+      if (userWatchcodeArray[2] == videoWatchcodeArray[2]) {
+        newCoins += PrizeCoins;
+        count++;
+      }
+
+      if (count == 4) {
+        newCoins += 20; // bonus for getting all majic numbers
+      }
+    }
+
+    console.log("newCoins", newCoins);
+    req.body.coins = newCoins;
+    let NewCoinsMining = {
+      userID: req.user._id,
+      activity: "E-Video",
+      coins: newCoins,
+      VideoId: req.body.videoId,
+      Watchcode: req.body.watchcode,
+      nextViewTime: e_Video.data.nextViewTime,
+      month: numberedMonth,
+      day: numberedDay,
+    };
+
+    // Encrypt the data and store it in the encData field
+    NewCoinsMining.encData = encryptData({ ...NewCoinsMining });
+    // console.log("e_Video", e_Video);
+    // console.log("NewCoinsMining:", NewCoinsMining);
+    // console.log("Request Body:", req.body);
+    // console.log("Video ID:", req.body.videoId);
+    // console.log("Watch Code:", req.body.watchcode);
+    // console.log("User:", req.user);
+    // console.log("E-Video Data:", e_Video?.data);
+
+    // Create a new coinsMining record in a MongoDB transaction
+    console.log("Yahooo");
+    const coinsMining = await CoinsMining.create([NewCoinsMining], { session });
+    
+    console.log("Yahooo2");
+    // Fetch or create user balance
+    let balance = await Balance.findOne({ userID: req.user._id }).session(
+      session
+    );
+    console.log("Yahooo3");
+
+    if (!balance) {
+      balance = await Balance.create({
+        userID: req.user._id,
+        TotalMainCoins: 0,
+        TotalBonusCoins: 0,
+        TotalCurrentCoins: 0,
+        TotalCoinsTobeValued: 0,
+        TotalMoneyLeft: 0,
+        month: numberedMonth,
+        dailyMainCoins: 0,
+        dailyBonusCoins: 0,
+        dailyCurrentCoins: 0,
+        dailyTaskCompleted: 0,
+        encData: "new",
+      });
+    }
+
+    console.log("Yahooo4");
+
     // Fetch or create user balance
     let refBalance = {};
-    if (req.user.referredUID == ORGUSERiD) {
-      refBalance = OrgBalance;
+    if (req.user.referredUID == req.user._id) {
+      refBalance = balance;
     } else {
       refBalance = await Balance.findOne({
         userID: req.user.referredUID,
@@ -439,104 +617,9 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
         encData: "new",
       });
     }
-    console.log("RESPONS OK2");
     refBalance = await decodeAndVerifyData(refBalance);
 
-    /////////
-    let lastTargetLossRef = 0;
-
-    if (refBalance.month != numberedMonth || refBalance.Day != numberedDay) {
-      if (refBalance.Day != numberedDay && refBalance.userID === ORGUSERiD) {
-        if (refBalance.dailyTaskCompleted < 10) {
-          // remove the bonus from user bunus and add it ORGUSER
-          lastTargetLossRef = refBalance.dailyBonusCoins;
-          refBalance.dailyTaskCompleted = 0;
-          refBalance.TotalBonusCoins =
-            refBalance.TotalBonusCoins - lastTargetLossRef;
-
-          // Fetch or create user refBalance
-          if (!OrgBalance) {
-            OrgBalance = await Balance.findOne({ userID: ORGUSERiD }).session(
-              session
-            );
-          }
-          if (!OrgBalance) {
-            OrgBalance = new Balance({
-              userID: ORGUSERiD,
-              TotalMainCoins: 0,
-              TotalBonusCoins: 0,
-              TotalCurrentCoins: 0,
-              TotalCoinsTobeValued: 0,
-              TotalMoneyLeft: 0,
-              month: numberedMonth,
-              dailyMainCoins: 0,
-              dailyBonusCoins: 0,
-              dailyCurrentCoins: 0,
-              dailyTaskCompleted: 0,
-              encData: "new",
-            });
-          }
-          OrgBalance = await decodeAndVerifyData(OrgBalance);
-          OrgBalance.dailyWonBonus =
-            OrgBalance.dailyWonBonus + lastTargetLossRef;
-          OrgBalance.TotalWonBonus =
-            OrgBalance.TotalWonBonus + lastTargetLossRef;
-
-          if (OrgBalance.month != numberedMonth) {
-            //Stage the coins/shares
-            OrgBalance.TotalCoinsTobeValued =
-              OrgBalance.TotalCoinsTobeValued +
-              OrgBalance.TotalCurrentCoins +
-              OrgBalance.TotalWonBonus;
-            OrgBalance.TotalWonBonus = 0;
-            OrgBalance.dailyWonBonus = 0;
-            OrgBalance.TotalMainCoins = 0;
-            OrgBalance.TotalBonusCoins = 0;
-            OrgBalance.TotalCurrentCoins = 0;
-            OrgBalance.TotalTaskCompleted = 0;
-            OrgBalance.TotalMoneyLeft = OrgBalance.TotalMoneyLeft;
-            OrgBalance.month = numberedMonth;
-            OrgBalance.Day = numberedDay;
-            OrgBalance.wonmonth = numberedMonth;
-            OrgBalance.wonDay = numberedDay;
-            OrgBalance.dailyMainCoins = 0;
-            OrgBalance.dailyBonusCoins = 0;
-            OrgBalance.dailyCurrentCoins = 0;
-            OrgBalance.dailyTaskCompleted = 0;
-          }
-        }
-        refBalance.Day = numberedDay;
-        refBalance.dailyMainCoins = 0;
-        refBalance.dailyBonusCoins = 0;
-        refBalance.dailyCurrentCoins = 0;
-        refBalance.dailyTaskCompleted = 0;
-      }
-
-      if (refBalance.month != numberedMonth) {
-        //Stage the coins/shares
-        refBalance.TotalCoinsTobeValued =
-          refBalance.TotalCoinsTobeValued +
-          refBalance.TotalCurrentCoins +
-          refBalance.TotalWonBonus;
-        refBalance.TotalWonBonus = 0;
-        refBalance.dailyWonBonus = 0;
-        refBalance.TotalMainCoins = 0;
-        refBalance.TotalBonusCoins = 0;
-        refBalance.TotalCurrentCoins = 0;
-        refBalance.TotalTaskCompleted = 0;
-        refBalance.TotalMoneyLeft = refBalance.TotalMoneyLeft;
-        refBalance.month = numberedMonth;
-        refBalance.wonmonth = numberedMonth;
-        refBalance.wonDay = numberedDay;
-        refBalance.dailyMainCoins = 0;
-        refBalance.dailyBonusCoins = 0;
-        refBalance.dailyCurrentCoins = 0;
-        refBalance.dailyTaskCompleted = 0;
-      }
-    }
-
-    /////////
-    console.log("RESPONS OK3");
+    console.log("RESPONS OK2");
 
     // Referral Bonus
     let bonusData = {
@@ -551,6 +634,8 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
     let NewBonus = {
       ...bonusData,
     };
+
+    console.log("RESPONS OK3");
 
     // Statement data
     let statementData = {
@@ -567,10 +652,11 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       oldCoins: balance.TotalCurrentCoins,
       minedCoins: newCoins,
       newCoins: balance.TotalCurrentCoins + newCoins,
-      yestTargetLoss: lastTargetLoss,
-      yestTargetTaskCompleted: lastTargetTaskCompleted,
+      // yestTargetLoss: lastTargetLoss,
+      // yestTargetTaskCompleted: lastTargetTaskCompleted,
       month: numberedMonth,
     };
+    console.log("RESPONS OK4");
 
     let statement = {
       ...statementData,
@@ -631,23 +717,9 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       session,
     });
 
-    if (req.user.referredUID != ORGUSERiD && OrgBalance.length) {
-      await OrgBalance.save({ validateBeforeSave: false }, { session });
-    } else {
-      // update with new data and save
-      balance.dailyWonBonus = balance.dailyWonBonus + lastTargetLoss;
-      balance.TotalWonBonus = balance.TotalWonBonus + lastTargetLoss;
-    }
-
     if (refBalance.userID != balance.userID && refBalance.length) {
       await refBalance.save({ validateBeforeSave: false }, { session });
-    } else {
-      // update with new data and save
-      // update with new data and save
-      balance.dailyWonBonus = balance.dailyWonBonus + lastTargetLossRef;
-      balance.TotalWonBonus = balance.TotalWonBonus + lastTargetLossRef;
     }
-
     // Save balance
 
     if (balance.userID) {
