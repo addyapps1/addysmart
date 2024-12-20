@@ -87,6 +87,8 @@ if (process.env.NODE_ENV === "production") {
   allowedOrigins = SeverHostNames.map(
     (host) => `http://${process.env[`DEV_${host}`]}`
   );
+
+  allowedOrigins.push(`http://${process.env.DEV_CLIENT_HOST}`);
 }
 
 

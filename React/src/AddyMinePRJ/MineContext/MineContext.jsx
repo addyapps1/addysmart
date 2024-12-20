@@ -66,7 +66,7 @@ export const MineContextProvider = (props) => {
       url = `https://addy${SwitchAccount()}smart-authservice${getNextServerIndex("AUTH_HOST")}.onrender.com/`;
     } else {
       console.log("Case3");
-      url = "http://localhost:7983/";
+      url = "http://localhost:7981/";
     }
     return url;
   };
@@ -81,7 +81,7 @@ export const MineContextProvider = (props) => {
       url = `https://addy${SwitchAccount()}smart-e-videoservice${getNextServerIndex("E_VIDEO_HOST")}.onrender.com/`;
     } else {
       console.log("Case3");
-      url = "http://localhost:7981/";
+      url = "http://localhost:7983/";
     }
     return url;
   };
@@ -101,6 +101,8 @@ export const MineContextProvider = (props) => {
     return url;
   };
 
+  console.log("here vvv")
+
   const [referrals, setReferrals] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [balance, setBalance] = useState({});
@@ -111,6 +113,7 @@ export const MineContextProvider = (props) => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
 
   const closeSidebar = () => {
     setIsOpen(false);

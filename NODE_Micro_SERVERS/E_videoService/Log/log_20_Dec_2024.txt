@@ -1,0 +1,5 @@
+Query took  17 in milliseconds to fetch the documents, on Fri Dec 20 2024 10:11:25 GMT+0100 (West Africa Standard Time)
+Query took  24 in milliseconds to fetch the documents, on Fri Dec 20 2024 11:25:57 GMT+0100 (West Africa Standard Time)
+A new support document with issueCode undefined created by undefined on Fri Dec 20 2024 11:25:57 GMT+0100 (West Africa Standard Time)
+Query took  6 in milliseconds to fetch the documents, on Fri Dec 20 2024 12:19:14 GMT+0100 (West Africa Standard Time)
+Query took  5 in milliseconds to fetch the documents, on Fri Dec 20 2024 12:20:46 GMT+0100 (West Africa Standard Time)

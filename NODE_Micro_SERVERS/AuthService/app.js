@@ -78,6 +78,7 @@ import cors from "cors";
 //         `http://${process.env.DEV_CLIENT_HOST}`,
 //       ];
 
+// console.log("here")
 
 const SeverHostNames = [
   "AUTH_HOST",
@@ -120,9 +121,12 @@ if (process.env.NODE_ENV === "production") {
   allowedOrigins.push("https://addysmart-keepalive.onrender.com");
 } else {
   // Use SeverHostNames instead of undefined hostNames
+  console.log("local servers")
   allowedOrigins = SeverHostNames.map(
     (host) => `http://${process.env[`DEV_${host}`]}`
   );
+
+  allowedOrigins.push(`http://${process.env.DEV_CLIENT_HOST}`);
 }
 
 
@@ -142,6 +146,8 @@ app.use(
     credentials: true, // Allow cookies to be sent
   })
 );
+
+console.log("allowedOrigins", allowedOrigins);
 
 // Import routers
 import authRouter from "./Routes/authrouter.js";

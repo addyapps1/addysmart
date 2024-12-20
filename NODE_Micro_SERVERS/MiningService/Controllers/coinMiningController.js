@@ -71,14 +71,14 @@ const E_VideoHOST = () => {
   let url;
 
   if (process.env.NODE_ENV === "development") {
-    url = `http://${process.env.DEV_E_VideoHOST}`;
+    url = `http://${process.env.DEV_E_VIDEO_HOST}`;
   } else if (
     process.env.NODE_ENV === "production" &&
     process.env.PROD_TEST === "true"
   ) {
-    url = `http://${process.env.E_VideoHOST}`;
+    url = `https://${process.env.E_VIDEO_HOST}`;
   } else {
-    url = `http://${process.env.E_VideoHOST}`;
+    url = `https://${process.env.E_VIDEO_HOST}`;
 
     // Split and modify the URL
     const [firstPart, secondPart] = url.split(/\.(.+)/);
@@ -99,9 +99,9 @@ const AuthHOST = () => {
     process.env.NODE_ENV === "production" &&
     process.env.PROD_TEST === "true"
   ) {
-    url = `http://${process.env.AUTH_HOST}`;
+    url = `https://${process.env.AUTH_HOST}`;
   } else {
-    url = `http://${process.env.AUTH_HOST}`;
+    url = `https://${process.env.AUTH_HOST}`;
 
     // Split and modify the URL
     const [firstPart, secondPart] = url.split(/\.(.+)/);
@@ -473,6 +473,7 @@ const stageShares = async (userId, ORGUSERiD, referredUID) => {
   return ret;
 };
 
+
 export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
   console.log("BEFORE STAGING");
   await stageShares(req.user._id, ORGUSERiD, req.user.referredUID);
@@ -487,6 +488,7 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
   // Start a MongoDB session and transaction
   const session = await mongoose.startSession();
   session.startTransaction();
+  console.log("HERE 1");
 
   try {
     // Process files if they exist in the request
@@ -502,6 +504,7 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       nextViewTime: { $gt: Date.now() }, // Check within last 24 hours
     });
 
+
     // If a record is found, return an error
     if (coinsMiningViewed) {
       const message =
@@ -515,12 +518,17 @@ export const postCoinMining = asyncErrorHandler(async (req, res, next) => {
       });
     }
 
+  console.log("HERE 2");
+
     // Fetch external video data
-    const e_VideoServiceURL = `http://${E_VideoHOST()}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
+    const e_VideoServiceURL = `${E_VideoHOST()}/api/s/v1.00/evideo/evuplv/${req.body.videoId}`;
     const headers = {
       Authorization: `Server ${req.headers.authorization.split(" ")[1]}`,
       serverpassword: serverPassword,
     };
+
+     console.log("HERE 3");
+     console.log("e_VideoServiceURL", e_VideoServiceURL);
 
     const { data: e_Video } = await axios.get(e_VideoServiceURL, {
       headers,
