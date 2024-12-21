@@ -80,7 +80,7 @@ import cors from "cors";
 
 // console.log("here")
 
-const SeverHostNames = [
+const ServerHostNames = [
   "AUTH_HOST",
   "SUPPORT_HOST",
   "E_VIDEO_HOST",
@@ -100,18 +100,30 @@ let allowedOrigins = [];
 if (process.env.NODE_ENV === "production") {
   const suffixes = process.env.PROD_TEST === "true" ? [""] : ["1", "2", "3"];
 
+  // // Add production server hosts
+  // allowedOrigins = SeverHostNames.flatMap((host) =>
+  //   suffixes.map((suffix) => `https://${process.env[host]}${suffix}`)
+  // );
+
+
   // Add production server hosts
-  allowedOrigins = SeverHostNames.flatMap((host) =>
-    suffixes.map((suffix) => `https://${process.env[host]}${suffix}`)
-  );
+  allowedOrigins = ServerHostNames.flatMap((host) => {
+    const [firstPart, secondPart] = process.env[host].split(/\.(.+)/);
+    return suffixes.map((suffix) => {
+      // console.log(`https://${firstPart}${suffix}.${secondPart}`);
+      return `https://${firstPart}${suffix}.${secondPart}`;
+    });
+  });
 
   // Add client hosts with multiple suffixes
   const suffixes2 =
     process.env.PROD_TEST === "true" ? [""] : ["1", "2", "3", "4", "5", "6"];
 
   clientHostNames.forEach((host) => {
+    const [firstPart, secondPart] = process.env[host].split(/\.(.+)/);
     suffixes2.forEach((suffix) => {
-      allowedOrigins.push(`https://${process.env[host]}${suffix}`);
+      // console.log(`https://${firstPart}${suffix}.${secondPart}`);
+      allowedOrigins.push(`https://${firstPart}${suffix}.${secondPart}`);
     });
   });
 
@@ -121,16 +133,13 @@ if (process.env.NODE_ENV === "production") {
   allowedOrigins.push("https://addysmart-keepalive.onrender.com");
 } else {
   // Use SeverHostNames instead of undefined hostNames
-  console.log("local servers")
-  allowedOrigins = SeverHostNames.map(
+  console.log("local servers");
+  allowedOrigins = ServerHostNames.map(
     (host) => `http://${process.env[`DEV_${host}`]}`
   );
 
   allowedOrigins.push(`http://${process.env.DEV_CLIENT_HOST}`);
 }
-
-
-
 
 // CORS middleware setup
 app.use(

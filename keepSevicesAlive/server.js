@@ -5,12 +5,12 @@ import cors from "cors";
 const app = express();
 
 const allowedOrigins = [
-  "https://addyapps1.onrender.com/check",
-  "https://addyapps2.onrender.com/check",
-  "https://addyapps3.onrender.com/check",
-  "https://addyapps4.onrender.com/check",
-  "https://addyapps5.onrender.com/check",
-  "https://addyapps6.onrender.com/check",
+  process.env.ALIVE_CL1,
+  process.env.ALIVE_CL2,
+  process.env.ALIVE_CL3,
+  process.env.ALIVE_CL4,
+  process.env.ALIVE_CL5,
+  process.env.ALIVE_CL6,
 ];
 // app.use(cors({ origin: "https://addyapps.onrender.com" }));
 
@@ -41,12 +41,12 @@ const services = [
 
 // List of client services to monitor
 const clientServices = [
-  process.env.ALIVE_CL1,
-  process.env.ALIVE_CL2,
-  process.env.ALIVE_CL3,
-  process.env.ALIVE_CL4,
-  process.env.ALIVE_CL5,
-  process.env.ALIVE_CL6,
+  `${process.env.ALIVE_CL1}/check`,
+  `${process.env.ALIVE_CL2}/check`,
+  `${process.env.ALIVE_CL3}/check`,
+  `${process.env.ALIVE_CL4}/check`,
+  `${process.env.ALIVE_CL5}/check`,
+  `${process.env.ALIVE_CL6}/check`,
 ];
 
 // Function to ping services
