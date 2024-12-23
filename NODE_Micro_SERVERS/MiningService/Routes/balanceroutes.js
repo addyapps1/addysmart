@@ -36,6 +36,13 @@ router
     authController.protect,
     authController.restrict("headAccountant", "supreme"),
     balanceController.getBalances
+);
+  
+router
+  .route("/myrefbalance/:_id")
+  .get(
+    authController.protect,
+    balanceController.getMyRefBalance
   );
 
 router

@@ -19,7 +19,13 @@ const Referrals = () => {
 
 
 
-  const { API_AuthBase_url, referrals, setReferrals } = useContext(MineContext);
+  const {
+    API_AuthBase_url,
+    referrals,
+    setReferrals,
+    viewingReferral,
+    setViewingReferral,
+  } = useContext(MineContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [User, setUser] = useState({});
@@ -49,6 +55,17 @@ const Referrals = () => {
     console.log("User.referalID", user.referalID);
   }, [getStoredUserObj]);
 
+  const viewReferral = (rUser) => {
+    if (!rUser) {
+      console.error("No referral User provided");
+      return;
+    }
+
+    setViewingReferral(rUser);
+    navigate(`../referralprofile/${rUser?.referred?._id}`);
+  };
+
+
   // Fetch referrals data
   const fetchData = async () => {
     if (!User.referalID) return; // Ensure User is updated before fetching
@@ -73,7 +90,10 @@ const Referrals = () => {
         throw new Error(ReferralsData.message);
       }
     } catch (error) {
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);
@@ -127,7 +147,10 @@ const Referrals = () => {
       ) : referrals.length > 0 ? (
         referrals.map((referral) => (
           <div key={referral._id} className="task-item">
-            <ReferralsPresentation rUser={referral} />
+            <ReferralsPresentation
+              rUser={referral}
+              viewReferral={viewReferral}
+            />
           </div>
         ))
       ) : (

@@ -76,7 +76,10 @@ const ManageTasks = () => {
         throw new Error(tasksData.message);
       }
     } catch (error) {
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);
@@ -126,7 +129,10 @@ const ManageTasks = () => {
           throw new Error(errorData.message);
         }
       } catch (error) {
-        if (error == "Error: jwt expired") {
+        if (
+          error == "Error: jwt expired" ||
+          error == "Error: Device mismatch. Please login again"
+        ) {
           Swal.fire("Your login expired, please login again.");
           logout();
         }

@@ -188,6 +188,32 @@ export const postUserBalance = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+export const getMyRefBalance = asyncErrorHandler(async (req, res, next) => {
+  let balance = await Balance.findOne({ userID: req.params._id });
+
+  // If no balance is found, return an empty object
+  if (!balance) {
+    return res.status(200).json({
+      status: "success",
+      resource: "balance",
+      action: "retrieved",
+      length: 0,
+      data: {}, // Return an empty object when no balance is found
+    });
+  }
+
+  balance = await decodeAndVerifyData(balance);
+  balance = await limitEncDetaFromServe(balance);
+
+  res.status(200).json({
+    status: "success",
+    resource: "balance",
+    balance: "retrieved",
+    length: balance.length,
+    data: balance,
+  });
+});
+
 export const getOneBalance = asyncErrorHandler(async (req, res, next) => {
   let balance = await Balance.findOne({ userID: req.params._id });
 

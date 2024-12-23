@@ -10,6 +10,7 @@ import Support from "./MainComponents/support/support";
 const MiningServiceHeader = lazy(
   () => import("./HeaderComponents/MiningServiceHeader")
 );
+const ReferralProfile = lazy(() => import("./MainComponents/ReferralProfile"));
 const MineHome = lazy(() => import("./MainComponents/MineHome"));
 const Tasks = lazy(() => import("./MainComponents/Tasks"));
 const ManageTasks = lazy(() => import("./MainComponents/ManageTasks"));
@@ -67,6 +68,8 @@ const AddyMine = () => {
               path="/ticketchat/:ticketID"
               element={<SupportTicketChat />}
             />
+            <Route path="/referralprofile/:_id" element={<ReferralProfile />} />
+
             <Route path="/supportticket" element={<SupportTicket />} />
             <Route path="/referrals" element={<Referrals />} />
             <Route path="/managebalance" element={<ManageBalance />} />

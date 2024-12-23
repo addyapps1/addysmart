@@ -159,7 +159,10 @@ const MineHome = () => {
         throw new Error(referralData.message);
       }
     } catch (error) {
-        if (error == "Error: jwt expired") {
+        if (
+          error == "Error: jwt expired" ||
+          error == "Error: Device mismatch. Please login again"
+        ) {
           Swal.fire("Your login expired, please login again.");
           logout();
           navigate(`/`);
@@ -507,14 +510,16 @@ Your journey to effortless earnings starts here. Sign up today and let the rewar
         </div>
       </section>
 
-      <section className="flex justify-center items-center mx-6 mb-14">
+      <section className="flex justify-center items-center mx-6 mb-14 hidden">
         <div className="cards-container max-w-[850px] flex-wrap w-full justify-center">
           <div className="bg-[var(--container-bg-color)] flex-grow min-h-16 flex justify-center items-center rounded-md">
             Advertise here - 10 sec skip Video Ad
           </div>
         </div>
       </section>
-      <section className="flex justify-center items-center mx-6 mb-14">
+
+
+      <section className="flex justify-center items-center mx-6 mb-14 hidden">
         <div className="cards-container flex max-w-[850px] flex-wrap w-full justify-center gap-6">
           <div className="bg-[var(--container-bg-color)] basis-80 flex-grow min-h-16 flex justify-center items-center rounded-md">
             Run promotion/campaign

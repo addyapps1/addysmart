@@ -69,6 +69,12 @@ http://localhost:7982/api/a/v1.00/balance/payin
 http://localhost:7982/api/a/v1.00/balance
 
 
+# Get myref's Balances
+# methods: get
+# role: user
+{{MINING_HOST_API_base_url}}api/a/v1.00/balance/myrefbalance/:userId
+http://localhost:7982/api/a/v1.00/balance/myrefbalance/:userId
+
 # Get user Balances
 # methods: get
 # role: user

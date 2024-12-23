@@ -1,6 +1,6 @@
 import userProfile from "../../Assets/lucide--circle-user-round.svg";
 
-const ReferralsPresentation = ({ rUser }) => {
+const ReferralsPresentation = ({ rUser, viewReferral }) => {
   // Check if profileImg exists and if filePath is defined
   let userProfilePath = userProfile;
   if (rUser?.profileImg?.filePath) {
@@ -12,7 +12,10 @@ const ReferralsPresentation = ({ rUser }) => {
   return (
     <section className="flex justify-center items-center mx-6 mb-6">
       <div className="bg-[var(--container-bg-color)] text-[var(--highlight-color)] cards-container flex max-w-[850px] flex-wrap w-full justify-center gap-6 rounded-md">
-        <div className="w-full flex-grow min-h-16 flex justify-between items-center rounded-md p-4">
+        <div
+          className="w-full flex-grow min-h-16 flex justify-between items-center rounded-md p-4"
+          onClick={() => viewReferral(rUser)}
+        >
           <b className=" flex-grow">
             {`${rUser?.referred?.userTitle?.toUpperCase() || ""} 
               ${rUser?.referred?.firstName?.toUpperCase() || ""} 

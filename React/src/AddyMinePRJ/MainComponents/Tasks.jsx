@@ -75,9 +75,12 @@ const Tasks = () => {
       }
     } catch (error) {
       console.log("error", error);
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
-        logout()
+        logout();
         navigate(`/`);
       }
       console.error("Request failed:", error);

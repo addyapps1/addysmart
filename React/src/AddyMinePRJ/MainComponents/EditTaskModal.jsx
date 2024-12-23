@@ -89,7 +89,10 @@ const EditTaskModal = ({ taskID, isOpen, onClose }) => {
     } catch (error) {
       console.error("Task update failed:", error);
       Swal.fire("Task update failed");
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);

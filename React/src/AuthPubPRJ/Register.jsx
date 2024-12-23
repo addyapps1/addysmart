@@ -132,12 +132,7 @@ const handleTitle = () => {
       return false;
     }
 
-    const titleEndsWithDotRegex = /\.\s*$/;
 
-    if (userTitle && !titleEndsWithDotRegex.test(userTitle.trim())) {
-      // Automatically append a dot if it's missing
-      userTitle = `${userTitle.trim()}.`;
-    }
 
     // Password strength check
     console.log(
@@ -201,7 +196,7 @@ const handleTitle = () => {
 
     try {
       console.log("GOT HERE");
-      const response = await fetch(`${API_base_url}api/a/v1.00/users/signup`, {
+      const response = await fetch(`${API_base_url()}api/a/v1.00/users/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

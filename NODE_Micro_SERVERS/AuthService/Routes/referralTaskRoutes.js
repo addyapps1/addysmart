@@ -16,6 +16,10 @@ router
   );
 
 router
+  .route("/myrefreferraltask/:_id")
+  .get(authController.protect, referralTaskController.getMyRefReferralTask);
+
+router
   .route("/")
   .get(authController.protect, referralTaskController.getReferralTask);
 

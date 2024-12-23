@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 const ManageBalance = () => {
   const { logout, isLoggedIn, getStoredUserObj, getStoredToken, setPageTitle } =
     useContext(AuthContext);
-  const { API_MineBase_url, tasks, setTasks, balance, setBalance } =
+  const { API_MineBase_url, tasks, setTasks } =
     useContext(MineContext);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,10 @@ const ManageBalance = () => {
         throw new Error(tasksData.message);
       }
     } catch (error) {
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);

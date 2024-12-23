@@ -22,7 +22,7 @@ const ForgotPass = () => {
 
     try {
       const response = await fetch(
-        `${API_base_url}api/a/v1.00/users/forgotpassword`,
+        `${API_base_url()}api/a/v1.00/users/forgotpassword`,
         {
           method: "POST",
           headers: {

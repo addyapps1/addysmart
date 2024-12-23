@@ -97,7 +97,7 @@ const ResetPass = () => {
 
     try {
       const response = await fetch(
-        `${API_base_url}${!testProd ? getNextServerIndex(serverGroups.AUTH_HOST) : ''}api/a/v1.00/users/resetpassword/${token}`,
+        `${API_base_url()}${!testProd ? getNextServerIndex(serverGroups.AUTH_HOST) : ''}api/a/v1.00/users/resetpassword/${token}`,
         {
           method: "PATCH",
           headers: {

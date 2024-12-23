@@ -17,7 +17,6 @@ const CreateTaskModal = ({ isOpen, onClose }) => {
   const [challengeType, setChallengeType] = useState("");
   const [vidStatus, setVidStatus] = useState("");
   const navigate = useNavigate();
-  
 
   // Validate the form (ensuring all required fields are filled)
   const validateForm = () => {
@@ -82,7 +81,10 @@ const CreateTaskModal = ({ isOpen, onClose }) => {
     } catch (error) {
       console.error("Task creation failed:", error);
       Swal.fire("Task creation failed");
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);

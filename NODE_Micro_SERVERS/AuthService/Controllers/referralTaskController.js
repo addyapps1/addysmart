@@ -172,6 +172,33 @@ export const getAllReferralTask = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+
+// Get a specific referral task for a referral
+export const getMyRefReferralTask = asyncErrorHandler(async (req, res, next) => {
+  console.log("Fetching referral task for user:",  req.params._id);
+
+  let referralTask = await ReferralTask.findOne({ userID: req.params._id });
+
+  if (!referralTask) {
+    const error = new CustomError(
+      `ReferralTask for user with ID: ${req.params._id} not found`,
+      404
+    );
+    return next(error);
+  }
+
+  referralTask = await decodeAndVerifyData(referralTask);
+  referralTask = await limitEncDetaFromServe(referralTask); // Verify the data data
+
+   console.log("result referral task for user:", referralTask);
+  res.status(200).json({
+    status: "success",
+    resource: "ReferralTask",
+    action: "getOne",
+    data: referralTask,
+  });
+});
+
 // Get a specific referral task for a user
 export const getReferralTask = asyncErrorHandler(async (req, res, next) => {
   console.log("Fetching referral task for user:", req.user._id);

@@ -111,7 +111,10 @@ const WordOccuranceModal = ({ videoId, isOpen, onClose }) => {
     } catch (error) {
       console.error("Shares mining failed:", error);
       Swal.fire("Shares mining failed");
-      if (error == "Error: jwt expired") {
+      if (
+        error == "Error: jwt expired" ||
+        error == "Error: Device mismatch. Please login again"
+      ) {
         Swal.fire("Your login expired, please login again.");
         logout();
         navigate(`/`);

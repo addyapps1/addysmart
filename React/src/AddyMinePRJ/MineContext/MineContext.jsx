@@ -108,6 +108,7 @@ export const MineContextProvider = (props) => {
   const [balance, setBalance] = useState({});
 
   const [isOpen, setIsOpen] = useState(false);
+  const [viewingReferral, setViewingReferral] = useState({});
 
   // Toggle sidebar open/close
   const toggleSidebar = () => {
@@ -189,6 +190,8 @@ export const MineContextProvider = (props) => {
     sideBarRef,
     navCloseSideBarRef,
     SERVICENAME,
+    viewingReferral,
+    setViewingReferral,
   };
 
   return (
